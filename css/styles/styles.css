@@ -38,3 +38,16 @@ img {
     display: flex;
 }
 
+/* Alterando a cor do placeholder */
+.altera-cor-placeholder::-webkit-input-placeholder{ 
+    color: white;
+}
+.altera-cor-placeholder:-moz-placeholder{ 
+    color: white;
+}
+.altera-cor-placeholder::-moz-placeholder{ 
+    color: white;
+}
+.altera-cor-placeholder:-ms-input-placeholder{ 
+    color: white;
+}
