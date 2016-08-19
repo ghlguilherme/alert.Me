@@ -53,84 +53,84 @@ $(document).ready(function () {
         $("#txt-cep").removeClass("altera-cor-placeholder");
     });
     //Campo rua
-    $("#txt-nome").click(function(event){
-        $( "#txt-nome" ).animate({
+    $("#txt-rua").click(function(event){
+        $( "#txt-rua" ).animate({
             backgroundColor: "white"
         });
-        $("#nome-mensagem").text("");
-        $("#txt-nome").removeClass("altera-cor-placeholder");
+        $("#rua-mensagem").text("");
+        $("#txt-rua").removeClass("altera-cor-placeholder");
     });
     //Campo numero
-    $("#txt-nome").click(function(event){
-        $( "#txt-nome" ).animate({
+    $("#txt-numero").click(function(event){
+        $( "#txt-numero" ).animate({
             backgroundColor: "white"
         });
-        $("#nome-mensagem").text("");
-        $("#txt-nome").removeClass("altera-cor-placeholder");
+        $("#numero-mensagem").text("");
+        $("#txt-numero").removeClass("altera-cor-placeholder");
     });
     //Campo bairro
-    $("#txt-nome").click(function(event){
-        $( "#txt-nome" ).animate({
+    $("#txt-bairro").click(function(event){
+        $( "#txt-bairro" ).animate({
             backgroundColor: "white"
         });
-        $("#nome-mensagem").text("");
-        $("#txt-nome").removeClass("altera-cor-placeholder");
+        $("#bairro-mensagem").text("");
+        $("#txt-bairro").removeClass("altera-cor-placeholder");
     });
     //Campo cidade
-    $("#txt-nome").click(function(event){
-        $( "#txt-nome" ).animate({
+    $("#txt-cidade").click(function(event){
+        $( "#txt-cidade" ).animate({
             backgroundColor: "white"
         });
-        $("#nome-mensagem").text("");
-        $("#txt-nome").removeClass("altera-cor-placeholder");
+        $("#cidade-mensagem").text("");
+        $("#txt-cidade").removeClass("altera-cor-placeholder");
     });
     //Campo estado
-    $("#txt-nome").click(function(event){
-        $( "#txt-nome" ).animate({
+    $("#select-estado").click(function(event){
+        $( "#select-estado" ).animate({
             backgroundColor: "white"
         });
-        $("#nome-mensagem").text("");
-        $("#txt-nome").removeClass("altera-cor-placeholder");
+        $("#estado-mensagem").text("");
+        $("#select-estado").removeClass("altera-cor-placeholder");
     });
     //Campo telefone
-    $("#txt-nome").click(function(event){
-        $( "#txt-nome" ).animate({
+    $("#txt-telefone").click(function(event){
+        $( "#txt-telefone" ).animate({
             backgroundColor: "white"
         });
-        $("#nome-mensagem").text("");
-        $("#txt-nome").removeClass("altera-cor-placeholder");
+        $("#telefone-mensagem").text("");
+        $("#txt-telefone").removeClass("altera-cor-placeholder");
     });
     //Campo celular
-    $("#txt-nome").click(function(event){
-        $( "#txt-nome" ).animate({
+    $("#txt-celular").click(function(event){
+        $( "#txt-celular" ).animate({
             backgroundColor: "white"
         });
-        $("#nome-mensagem").text("");
-        $("#txt-nome").removeClass("altera-cor-placeholder");
+        $("#celular-mensagem").text("");
+        $("#txt-celular").removeClass("altera-cor-placeholder");
     });
     //Campo email
-    $("#txt-nome").click(function(event){
-        $( "#txt-nome" ).animate({
+    $("#txt-email").click(function(event){
+        $( "#txt-email" ).animate({
             backgroundColor: "white"
         });
-        $("#nome-mensagem").text("");
-        $("#txt-nome").removeClass("altera-cor-placeholder");
+        $("#email-mensagem").text("");
+        $("#txt-email").removeClass("altera-cor-placeholder");
     });
     //Campo senha
-    $("#txt-nome").click(function(event){
-        $( "#txt-nome" ).animate({
+    $("#txt-senha").click(function(event){
+        $( "#txt-senha" ).animate({
             backgroundColor: "white"
         });
-        $("#nome-mensagem").text("");
-        $("#txt-nome").removeClass("altera-cor-placeholder");
+        $("#senha-mensagem").text("");
+        $("#txt-senha").removeClass("altera-cor-placeholder");
     });
     //Campo contrasenha
-    $("#txt-nome").click(function(event){
-        $( "#txt-nome" ).animate({
+    $("#txt-contrasenha").click(function(event){
+        $( "#txt-contrasenha" ).animate({
             backgroundColor: "white"
         });
-        $("#nome-mensagem").text("");
-        $("#txt-nome").removeClass("altera-cor-placeholder");
+        $("#contrasenha-mensagem").text("");
+        $("#txt-contrasenha").removeClass("altera-cor-placeholder");
     });
     
     //Requisição ajax de login
