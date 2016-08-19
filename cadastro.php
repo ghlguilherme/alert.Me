@@ -10,18 +10,15 @@
         <link rel="stylesheet" href="css/frameworks/tether.min.css">
         <link rel="stylesheet" href="css/frameworks/bootstrap.min.css">
         <link rel="stylesheet" href="css/frameworks/jquery-ui.min.css">
-        <link rel="stylesheet" href="css/frameworks/bootstrap-datepicker3.standalone.min.css">
         <link rel="stylesheet" href="css/frameworks/tether-theme-basic.min.css">
         <link rel="stylesheet" href="css/frameworks/tether-theme-arrows.min.css">
         <link rel="stylesheet" href="css/frameworks/tether-theme-arrows-dark.min.css">
         <link rel="stylesheet" href="css/styles/styles.css">
         <script type="application/javascript" src="js/frameworks/jquery-3.1.0.min.js"></script>
         <script type="application/javascript" src="js/frameworks/tether.min.js"></script>
-        <script type="application/javascript" src="js/frameworks/jquery-ui.min.js"></script>
         <script type="application/javascript" src="js/frameworks/bootstrap.min.js"></script>
         <script type="application/javascript" src="js/frameworks/jquery.mask.min.js"></script>
-        <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.min.js"></script>
-        <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.pt-BR.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/jquery-ui.min.js"></script>
         <script type="application/javascript" src="js/scripts/scripts.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -65,11 +62,12 @@
                        <div class="row">
                            <div class="col-xs-8 col-sm-8 col-md-8">
                                     <label for="txt-nome">Nome Completo</label>
-                                    <input type="text" class="form-control form-control-sm" id="txt-nome" name="txt-nome" placeholder="Nome Completo">
+                                    <input type="text" class="form-control form-control-sm" id="txt-nome" name="txt-nome" placeholder="Nome Completo" aria-describedby="nome-message">
+                                    <small id="nome-message" class="form-text font-weight-bold text-danger"></small>
                            </div>
                            <div class="col-xs-4 col-sm-4 col-md-4">
                                     <label for="txt-nascimento">Nascimento</label>
-                                    <input type="text" class="form-control form-control-sm" id="txt-nascimento" name="txt-nascimento" placeholder="dd/mm/aaaa">
+                                    <input type="text" class="form-control form-control-sm" id="txt-nascimento" name="txt-nascimento" placeholder="dd/mm/aaaa" data-provide="datepicker">
                            </div>
                        </div>
                        <div class="row">
@@ -165,10 +163,10 @@
                        <br>
                        
                        <div class="row">
-                           <div class="col-xs-6 col-sm-6 col-md-6">
+                           <div class="col-xs-8 col-sm-8 col-md-8">
                                 <button type="reset" class="btn btn-danger btn-block">Limpar Campos</button>    
                            </div>
-                           <div class="col-xs-6 col-sm-6 col-md-6">
+                           <div class="col-xs-4 col-sm-4 col-md-4">
                                 <button type="button" class="btn btn-success btn-block" id="btn-cadastro">Enviar</button>    
                            </div>
                        </div>
@@ -198,6 +196,5 @@
             </div>
         </div>
     </footer>
-
     </body>
 </html>
