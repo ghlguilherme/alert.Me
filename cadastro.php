@@ -1,6 +1,4 @@
-<?php
-    date_default_timezone_set('America/Sao_Paulo');
-?>
+<?php include("paginas/processamento_banco.php");?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,17 +7,22 @@
         <link rel="icon" type="image/png" href="img/icon_television.png" sizes="192x192">
         <title>Cadastro - alert.Me</title>
         <link rel="shortcut icon" type="image/png" href="img/icon_television.png"/>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/bootstrap-datepicker3.standalone.min.css">
-        <script type="application/javascript" src="js/jquery-3.1.0.min.js"></script>
-        <script type="application/javascript" src="js/jquery-ui.min.js"></script>
-        <script type="application/javascript" src="js/bootstrap.min.js"></script>
-        <script type="application/javascript" src="js/jquery.mask.min.js"></script>
-        <script type="application/javascript" src="js/bootstrap-datepicker.min.js"></script>
-        <script type="application/javascript" src="js/bootstrap-datepicker.pt-BR.min.js"></script>
-        <script type="application/javascript" src="js/scripts.js"></script>
+        <link rel="stylesheet" href="css/frameworks/tether.min.css">
+        <link rel="stylesheet" href="css/frameworks/bootstrap.min.css">
+        <link rel="stylesheet" href="css/frameworks/jquery-ui.min.css">
+        <link rel="stylesheet" href="css/frameworks/bootstrap-datepicker3.standalone.min.css">
+        <link rel="stylesheet" href="css/frameworks/tether-theme-basic.min.css">
+        <link rel="stylesheet" href="css/frameworks/tether-theme-arrows.min.css">
+        <link rel="stylesheet" href="css/frameworks/tether-theme-arrows-dark.min.css">
+        <link rel="stylesheet" href="css/styles/styles.css">
+        <script type="application/javascript" src="js/frameworks/jquery-3.1.0.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/tether.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/jquery-ui.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/bootstrap.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/jquery.mask.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.pt-BR.min.js"></script>
+        <script type="application/javascript" src="js/scripts/scripts.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -44,7 +47,7 @@
                               <a class="nav-link text-success font-weight-bold" href="#"><?=date("d-m-Y")?></a>
                             </li>
                             <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="Voltar a tela de login.">
-                              <a class="nav-link text-warning font-weight-bold" href="login.php">Retornar a tela de Login</a>
+                              <a class="nav-link text-warning font-weight-bold" href="index.php">Retornar a tela de Login</a>
                             </li>
                           </ul>
                         </div>                      
@@ -58,7 +61,7 @@
             <div class="container">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <h3 class="display-5"><span class="text-danger font-weight-bold">a</span>lert.Me</h3>
-                    <form action="">
+                    <form id="form-cadastro">
                        <div class="row">
                            <div class="col-xs-8 col-sm-8 col-md-8">
                                     <label for="txt-nome">Nome Completo</label>
@@ -87,8 +90,7 @@
                            </div>
                            <div class="col-xs-3 col-sm-3 col-md-3">
                                   <label for="txt-numero">Nº</label>
-                                    <input type="text" class="form-control form-control-sm" id="txt-numero" name="txt-numero" placeholder="Nº">
-                                    
+                                    <input type="number" class="form-control form-control-sm" id="txt-numero" name="txt-numero" placeholder="Nº">
                            </div>
                        </div>
                        <div class="row">
@@ -100,7 +102,6 @@
                                     <label for="txt-cidade">Cidade</label>
                                     <input type="text" class="form-control form-control-sm" id="txt-cidade" name="txt-cidade" placeholder="Cidade">
                            </div>
-                           
                        </div>
                        <div class="row">
                           <div class="col-xs-4 col-sm-4 col-md-4">
@@ -168,7 +169,7 @@
                                 <button type="reset" class="btn btn-danger btn-block">Limpar Campos</button>    
                            </div>
                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <button type="submit" class="btn btn-success btn-block">Enviar</button>    
+                                <button type="button" class="btn btn-success btn-block" id="btn-cadastro">Enviar</button>    
                            </div>
                        </div>
                     </form>

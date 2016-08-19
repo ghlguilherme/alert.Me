@@ -1,6 +1,4 @@
-<?php
-    date_default_timezone_set('America/Sao_Paulo');
-?>
+<?php include("paginas/processamento_banco.php");?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,13 +7,22 @@
         <link rel="icon" type="image/png" href="img/icon_television.png" sizes="192x192">
         <title>Login - alert.Me</title>
         <link rel="shortcut icon" type="image/png" href="img/icon_television.png"/>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
-        <link rel="stylesheet" href="css/styles.css">
-        <script type="application/javascript" src="js/jquery-3.1.0.min.js"></script>
-        <script type="application/javascript" src="js/bootstrap.min.js"></script>
-        <script type="application/javascript" src="js/jquery-ui.min.js"></script>
-        <script type="application/javascript" src="js/scripts.js"></script>
+        <link rel="stylesheet" href="css/frameworks/tether.min.css">
+        <link rel="stylesheet" href="css/frameworks/bootstrap.min.css">
+        <link rel="stylesheet" href="css/frameworks/jquery-ui.min.css">
+        <link rel="stylesheet" href="css/frameworks/tether-theme-basic.min.css">
+        <link rel="stylesheet" href="css/frameworks/tether-theme-arrows.min.css">
+        <link rel="stylesheet" href="css/frameworks/tether-theme-arrows-dark.min.css">
+        <link rel="stylesheet" href="css/frameworks/bootstrap-datepicker3.standalone.min.css">
+        <link rel="stylesheet" href="css/styles/styles.css">
+        <script type="application/javascript" src="js/frameworks/jquery-3.1.0.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/tether.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/bootstrap.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/jquery-ui.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/jquery.mask.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.min.js"></script>
+        <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.pt-BR.min.js"></script>
+        <script type="application/javascript" src="js/scripts/scripts.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -55,21 +62,21 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <h1 class="display-3"><span class="text-danger font-weight-bold">a</span>lert.Me</h1>
                     <p>Não seja pego de surpresa faça login e descubra os lugares que você deve evitar </p>
-                    <form action="">
+                    <form id="form-login">
                         <div class="form-group">
                             <label class="sr-only">Usuário</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="Usuário">
+                            <input type="text" class="form-control form-control-lg" placeholder="Usuário" name="txt-usuario" id="txt-usuario">
                         </div>
                         <div class="form-group">
                             <label class="sr-only">Senha</label>
-                            <input type="password" class="form-control form-control-lg" placeholder="Senha">
+                            <input type="password" class="form-control form-control-lg" placeholder="Senha" name="txt-senha" id="txt-senha">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-lg">Login</button>
+                            <button type="button" class="btn btn-success btn-lg" id="btn-login">Login</button>
                             <button type="button" class="btn btn-primary btn-lg" onclick="location.href='cadastro.php'">Cadastro</button>
                         </div>
                         <div class="form-group">
-                            <a href="" class="text-warning font-weight-bold">Esqueceu usuário ou senha?</a>
+                            <a href="" class="text-warning font-weight-bold" data-toggle="modal" data-target="#modal-esqueceu">Esqueceu usuário ou senha?</a>
                         </div>
                     </form>
                 </div>
@@ -97,6 +104,25 @@
             </div>
         </div>
     </footer>
-
+    <!-- Modal Esqueceu-->
+    <div class="modal fade" id="modal-esqueceu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="label-modal-esqueceu">Esqueceu usuário ou senha?</h4>
+          </div>
+          <div class="modal-body">
+              <h3>Digite seu email cadastrado para recuperar seus dados.</h3>
+              <input type="email" class="form-control form-lg" placeholder="Email" id="txt-email-recuperar">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
     </body>
 </html>
