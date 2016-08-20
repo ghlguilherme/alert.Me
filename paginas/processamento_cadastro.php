@@ -19,7 +19,7 @@
             if($usuario!=null){
                 if($cep!=null){
                     if($rua!=null){
-                        if($numero!=null || $numero == 0){
+                        if($numero!=null || $numero != 0){
                             if($bairro!=null){
                                 if($cidade!=null){
                                     if($estado!=null){

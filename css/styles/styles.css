@@ -51,3 +51,6 @@ img {
 .altera-cor-placeholder:-ms-input-placeholder{ 
     color: white;
 }
+.form-control{
+    color: black;
+}
