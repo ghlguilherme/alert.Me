@@ -1,13 +1,30 @@
 <?php
     date_default_timezone_set('America/Sao_Paulo');
 
-    $hostname = "localhost";
-    $bancodedados = "PROJETO_ALERT";
-    $usuario = "root";
-    $senha = "root";
+    function conecta_bd(){
+        $hostname = "localhost";
+        $bancodedados = "ALERTMEBD";
+        $usuario = "root";
+        $senha = "root";
 
-    $mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
-    if ($mysqli->connect_errno) {
-        echo "Falha ao conectar: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+        $conn = new mysqli($hostname, $usuario, $senha, $bancodedados);
+        mysqli_set_charset($conn, "utf8") or die(mysqli_error($conn));
+        if ($conn->connect_errno) {
+            echo "Falha ao conectar: (" . $conn->connect_errno . ") " . $conn->connect_error;
+        }
+        return $conn;
+    }
+
+    function fecha_bd($conn){
+        @mysqli_close($conn) or die(mysqli_error($conn));
+    }
+
+    function escape_bd($dados){
+        $conn = conecta_bd();
+        if(!is_array($dados)){
+            $dados = mysqli_real_escape_string($conn, $dados);
+        }
+        fecha_bd($conn);
+        return $dados;
     }
 ?>
