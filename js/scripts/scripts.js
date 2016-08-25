@@ -283,6 +283,26 @@ $(document).ready(function () {
                 });
                 $("#contrasenha-mensagem").text("Campo contrasenha está vazio!");
                 $("#txt-contrasenha").addClass("altera-cor-placeholder");
+            }else if(response === 'erro_senha_diferentes'){
+                $( "#txt-senha" ).animate({
+                    backgroundColor: "#ff0000",
+                    textDecorationColor: "#ff0000"
+                });
+                //$("#senha-mensagem").text("Campo contrasenha está vazio!");
+                $("#txt-contrasenha").addClass("altera-cor-placeholder");
+                $( "#txt-contrasenha" ).animate({
+                    backgroundColor: "#ff0000",
+                    textDecorationColor: "#ff0000"
+                });
+                $("#contrasenha-mensagem").text("Senhas estão diferentes!");
+                $("#txt-contrasenha").addClass("altera-cor-placeholder");
+            }else if(response === 'erro_usuario_existe'){
+                $( "#txt-usuario" ).animate({
+                    backgroundColor: "#ffff00",
+                    textDecorationColor: "#ffff00"
+                });
+                $("#usuario-mensagem").text("Nome de usuário já se encontra em uso!");
+                $("#txt-usuario").addClass("altera-cor-placeholder");
             }else{
                 alert(response);
             }
