@@ -184,7 +184,7 @@ $(document).ready(function () {
         });
         request.done(function (response, textStatus, jqXHR) {
             if (response === 'success') {
-                alert("Sucesso no cadastro");
+                alert("Cadastro realizado com sucesso!");
             }else if(response === 'erro_nome'){
                 $( "#txt-nome" ).animate({
                     backgroundColor: "#ff0000",
@@ -283,6 +283,8 @@ $(document).ready(function () {
                 });
                 $("#contrasenha-mensagem").text("Campo contrasenha está vazio!");
                 $("#txt-contrasenha").addClass("altera-cor-placeholder");
+            }else{
+                alert(response);
             }
             
         });

@@ -1,4 +1,6 @@
 <?php
+    include "processamento_banco.php";
+
     $nome = isset($_POST['txt-nome']) ? $_POST['txt-nome'] : null;
     $nascimento = isset($_POST['txt-nascimento']) ? $_POST['txt-nascimento'] : null;
     $usuario = isset($_POST['txt-usuario']) ? $_POST['txt-usuario'] : null;    
@@ -28,7 +30,26 @@
                                                 if($email!=null){
                                                     if($senha!=null){
                                                         if($contrasenha!=null){
+                                                            $nome = escape_bd($nome);
+                                                            $nascimento = escape_bd($nascimento);
+                                                            $usuario = escape_bd($usuario);
+                                                            $cep = escape_bd($cep);
+                                                            $rua = escape_bd($rua);
+                                                            $numero = escape_bd($numero);
+                                                            $bairro = escape_bd($bairro);
+                                                            $cidade = escape_bd($cidade);
+                                                            $estado = escape_bd($estado);
+                                                            $telefone = escape_bd($telefone);
+                                                            $celular = escape_bd($celular);
+                                                            $email = escape_bd($email);
+                                                            $senha = escape_bd($senha);
+                                                            $contrasenha = escape_bd($contrasenha);
                                                             
+                                                            $sql_pessoa = "INSERT INTO PESSOA(PESSOA_NOME, PESSOA_NASCIMENTO, PESSOA_USUARIO, PESSOA_SENHA, PESSOA_EMAIL) VALUES('{$nome}','".date('Y-m-d',strtotime(str_replace('/','-',$nascimento)))."','{$usuario}','".md5($senha)."','{$email}')";
+                                                            
+                                                            $conn = conecta_bd();
+                                                            mysqli_query($conn, $sql_pessoa);
+                                                            echo "success";
                                                         }else{
                                                             echo "erro_contrasenha";
                                                         }
