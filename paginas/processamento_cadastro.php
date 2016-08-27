@@ -54,10 +54,21 @@
                                                                     $email = escape_bd($email);
                                                                     $senha = escape_bd($senha);
                                                                     $contrasenha = escape_bd($contrasenha);
+                                                                    
+                                                                    //retirando caracteres do cep, telefone e celular
+                                                                    $cep = str_replace('-','',$cep);
+                                                                    $telefone = str_replace('-','',$telefone);
+                                                                    $telefone = str_replace('(','',$telefone);
+                                                                    $telefone = str_replace(')','',$telefone);
+                                                                    $celular = str_replace('-','',$celular);
+                                                                    $celular = str_replace('(','',$celular);
+                                                                    $celular = str_replace(')','',$celular);
 
+                                                                    //Guarda conexão com o banco de dados
+                                                                    $conn = conecta_bd();
+                                                                    
                                                                     $sql_pessoa = "INSERT INTO PESSOA(PESSOA_NOME, PESSOA_NASCIMENTO, PESSOA_USUARIO, PESSOA_SENHA, PESSOA_EMAIL) VALUES('{$nome}','".date('Y-m-d',strtotime(str_replace('/','-',$nascimento)))."','{$usuario}','".md5($senha)."','{$email}')";
 
-                                                                    $conn = conecta_bd();
                                                                     if(mysqli_query($conn, $sql_pessoa)){
                                                                         //Obter o id da pessoa adicionada 
                                                                         $sql_pessoa_id = "SELECT PESSOA_ID FROM PESSOA WHERE PESSOA_USUARIO = '{$usuario}'";
@@ -70,7 +81,7 @@
                                                                          }
                                                                         $pessoa_id = intval($pessoa_id);
                                                                         if($pessoa_id > 0){
-                                                                            $sql_pessoa_endereco = "INSERT INTO PESSOAENDERECO(PESSOAENDERECO_PESSOA, PESSOAENDERECO_CEP, PESSOAENDERECO_RUA, PESSOAENDERECO_NUMERO, PESSOAENDERECO_BAIRRO, PESSOAENDERECO_CIDADE, PESSOAENDERECO_ESTADO) VALUES({$pessoa_id},'{$cep}','{$rua}','{$numero}','{$bairro}','{$cidade}','{$estado}')";
+                                                                            $sql_pessoa_endereco = "INSERT INTO PESSOAENDERECO(PESSOAENDERECO_PESSOA, PESSOAENDERECO_CEP, PESSOAENDERECO_RUA, PESSOAENDERECO_NUMERO, PESSOAENDERECO_BAIRRO, PESSOAENDERECO_CIDADE, PESSOAENDERECO_ESTADO) VALUES({$pessoa_id},'{$cep}','{$rua}',{$numero},'{$bairro}','{$cidade}','{$estado}')";
                                                                             
                                                                             if(mysqli_query($conn, $sql_pessoa_endereco)){
                                                                                 $sql_pessoa_contato_telefone = "INSERT INTO PESSOACONTATO(PESSOACONTATO_PESSOA, PESSOACONTATO_TIPO, PESSOACONTATO_CONTATO) VALUES({$pessoa_id},'F','{$telefone}')";
@@ -80,12 +91,15 @@
                                                                                 mysqli_query($conn, $sql_pessoa_contato_telefone);
                                                                                 mysqli_query($conn, $sql_pessoa_contato_celular);
                                                                                 
+                                                                                mysqli_close($conn);
                                                                                 echo "success";
                                                                             }else{
+                                                                                mysqli_rollback($conn);
                                                                                 echo "erro_inserir_endereco";
-                                                                            }   
+                                                                            }
                                                                         }
                                                                     }else{
+                                                                        mysqli_rollback($conn);
                                                                         echo "erro_inserir_pessoa";
                                                                     }
                                                                     
