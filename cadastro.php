@@ -61,56 +61,56 @@
                     <form id="form-cadastro">
                        <div class="row">
                            <div class="col-xs-8 col-sm-8 col-md-8">
-                                    <label for="txt-nome">Nome Completo</label>
+                                    <label for="txt-nome">Nome Completo <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-sm" id="txt-nome" name="txt-nome" placeholder="Nome Completo" aria-describedby="nome-mensagem">
                                     <small id="nome-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                            <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <label for="txt-nascimento">Nascimento</label>
+                                    <label for="txt-nascimento">Nascimento <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-sm" id="txt-nascimento" name="txt-nascimento" placeholder="dd/mm/aaaa" data-provide="datepicker" aria-describedby="nascimento-mensagem">
                                     <small id="nascimento-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                        </div>
                        <div class="row">
                            <div class="col-xs-7 col-sm-7 col-md-7">
-                                    <label for="txt-usuario">Usuário</label>
+                                    <label for="txt-usuario">Usuário <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-sm" id="txt-usuario" name="txt-usuario" placeholder="Nome de Usuário/Login" aria-describedby="usuario-mensagem">
                                     <small id="usuario-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                            <div class="col-xs-5 col-sm-5 col-md-5">
-                                    <label for="txt-cep">CEP</label>
+                                    <label for="txt-cep">CEP <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-sm" id="txt-cep" name="txt-cep" placeholder="CEP" aria-describedby="cep-mensagem">
                                     <small id="cep-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                        </div>
                        <div class="row">
                            <div class="col-xs-9 col-sm-9 col-md-9">
-                                   <label for="txt-rua">Rua</label>
+                                   <label for="txt-rua">Rua <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-sm" id="txt-rua" name="txt-rua" placeholder="Rua" aria-describedby="rua-mensagem">
                                     <small id="rua-mensagem" class="form-text font-weight-bold text-danger"></small>
                                     
                            </div>
                            <div class="col-xs-3 col-sm-3 col-md-3">
-                                  <label for="txt-numero">Nº</label>
+                                  <label for="txt-numero">Nº <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="number" class="form-control form-control-sm" id="txt-numero" name="txt-numero" placeholder="Nº" aria-describedby="numero-mensagem">
                                     <small id="numero-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                        </div>
                        <div class="row">
                            <div class="col-xs-7 col-sm-7 col-md-7">
-                                    <label for="txt-bairro">Bairro</label>
+                                    <label for="txt-bairro">Bairro <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-sm" id="txt-bairro" name="txt-bairro" placeholder="Bairro" aria-describedby="bairro-mensagem">
                                     <small id="bairro-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                            <div class="col-xs-5 col-sm-5 col-md-5">
-                                    <label for="txt-cidade">Cidade</label>
+                                    <label for="txt-cidade">Cidade <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-sm" id="txt-cidade" name="txt-cidade" placeholder="Cidade" aria-describedby="cidade-mensagem">
                                     <small id="cidade-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                        </div>
                        <div class="row">
                           <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <label for="select-estado">Estado</label>
+                                    <label for="select-estado">Estado <span class="font-weight-bold text-danger">*</span></label>
                                     <select class="form-control form-control-sm" id="select-estado" name="select-estado" aria-describedby="estado-mensagem">
                                         <option value="">UF</option>
                                         <option value="AC">Acre</option>
@@ -144,31 +144,31 @@
                                     <small id="estado-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                            <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <label for="txt-telefone">Tel. Fixo</label>
+                                    <label for="txt-telefone">Tel. Fixo <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-sm" id="txt-telefone" name="txt-telefone" placeholder="(99) 9999-9999" aria-describedby="telefone-mensagem">
                                     <small id="telefone-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                            <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <label for="txt-celular">Tel. Celular</label>
+                                    <label for="txt-celular">Tel. Celular <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="text" class="form-control form-control-sm" id="txt-celular" name="txt-celular" placeholder="(99) 99999-9999" aria-describedby="celular-mensagem">
                                     <small id="celular-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                        </div>
                        <div class="row">
                            <div class="col-xs-12 col-sm-12 col-md-12">
-                               <label for="txt-email">Email</label>
+                               <label for="txt-email">Email <span class="font-weight-bold text-danger">*</span></label>
                                <input type="email" class="form-control form-control-sm" id="txt-email" name="txt-email" placeholder="exemplo@exemplo.com" aria-describedby="email-mensagem">
                                <small id="email-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                        </div>
                        <div class="row">
                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <label for="txt-senha">Senha</label>
+                                    <label for="txt-senha">Senha <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="password" class="form-control form-control-sm" id="txt-senha" name="txt-senha" placeholder="Senha" aria-describedby="senha-mensagem">
                                     <small id="senha-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <label for="txt-contrasenha">Confirmação</label>
+                                    <label for="txt-contrasenha">Confirmação <span class="font-weight-bold text-danger">*</span></label>
                                     <input type="password" class="form-control form-control-sm" id="txt-contrasenha" name="txt-contrasenha" placeholder="Contrasenha" aria-describedby="contrasenha-mensagem">
                                     <small id="contrasenha-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>

@@ -44,11 +44,11 @@
                                                                     $nascimento = escape_bd($nascimento);
                                                                     $usuario = escape_bd($usuario);
                                                                     $cep = escape_bd($cep);
-                                                                    $rua = escape_bd($rua);
+                                                                    $rua = strtoupper(escape_bd($rua));
                                                                     $numero = escape_bd($numero);
-                                                                    $bairro = escape_bd($bairro);
-                                                                    $cidade = escape_bd($cidade);
-                                                                    $estado = escape_bd($estado);
+                                                                    $bairro = strtoupper(escape_bd($bairro));
+                                                                    $cidade = strtoupper(escape_bd($cidade));
+                                                                    $estado = strtoupper(escape_bd($estado));
                                                                     $telefone = escape_bd($telefone);
                                                                     $celular = escape_bd($celular);
                                                                     $email = escape_bd($email);
@@ -60,9 +60,11 @@
                                                                     $telefone = str_replace('-','',$telefone);
                                                                     $telefone = str_replace('(','',$telefone);
                                                                     $telefone = str_replace(')','',$telefone);
+                                                                    $telefone = str_replace(' ','',$telefone);
                                                                     $celular = str_replace('-','',$celular);
                                                                     $celular = str_replace('(','',$celular);
                                                                     $celular = str_replace(')','',$celular);
+                                                                    $celular = str_replace(' ','',$celular);
 
                                                                     //Guarda conexão com o banco de dados
                                                                     $conn = conecta_bd();

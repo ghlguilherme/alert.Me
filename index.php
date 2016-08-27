@@ -65,11 +65,11 @@
                     <form id="form-login">
                         <div class="form-group">
                             <label class="sr-only">Usuário</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="Usuário" name="txt-usuario" id="txt-usuario">
+                            <input type="text" class="form-control form-control-lg" placeholder="Usuário" name="txt-usuario" id="txt-usuario-login">
                         </div>
                         <div class="form-group">
                             <label class="sr-only">Senha</label>
-                            <input type="password" class="form-control form-control-lg" placeholder="Senha" name="txt-senha" id="txt-senha">
+                            <input type="password" class="form-control form-control-lg" placeholder="Senha" name="txt-senha" id="txt-senha-login">
                         </div>
                         <div class="form-group">
                             <button type="button" class="btn btn-success btn-lg" id="btn-login">Login</button>

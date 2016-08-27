@@ -373,6 +373,13 @@ $(document).ready(function () {
                     limpa_formulário_cep();
                 }
             });
+    
+            //Configuração do enter para logar depois da senha
+            $("#txt-senha-login").keyup(function(event){
+                if(event.keyCode == 13){
+                    $("#btn-login").click();
+                }
+            });
 });
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
