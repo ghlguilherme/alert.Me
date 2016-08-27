@@ -58,8 +58,38 @@
                                                                     $sql_pessoa = "INSERT INTO PESSOA(PESSOA_NOME, PESSOA_NASCIMENTO, PESSOA_USUARIO, PESSOA_SENHA, PESSOA_EMAIL) VALUES('{$nome}','".date('Y-m-d',strtotime(str_replace('/','-',$nascimento)))."','{$usuario}','".md5($senha)."','{$email}')";
 
                                                                     $conn = conecta_bd();
-                                                                    mysqli_query($conn, $sql_pessoa);
-                                                                    echo "success";
+                                                                    if(mysqli_query($conn, $sql_pessoa)){
+                                                                        //Obter o id da pessoa adicionada 
+                                                                        $sql_pessoa_id = "SELECT PESSOA_ID FROM PESSOA WHERE PESSOA_USUARIO = '{$usuario}'";
+                                                                        
+                                                                        $result = mysqli_query($conn, $sql_pessoa_id);
+                                                                        
+                                                                        $pessoa_id = null;
+                                                                        while($tupla = mysqli_fetch_row($result)){
+                                                                             $pessoa_id = $tupla[0];
+                                                                         }
+                                                                        $pessoa_id = intval($pessoa_id);
+                                                                        if($pessoa_id > 0){
+                                                                            $sql_pessoa_endereco = "INSERT INTO PESSOAENDERECO(PESSOAENDERECO_PESSOA, PESSOAENDERECO_CEP, PESSOAENDERECO_RUA, PESSOAENDERECO_NUMERO, PESSOAENDERECO_BAIRRO, PESSOAENDERECO_CIDADE, PESSOAENDERECO_ESTADO) VALUES({$pessoa_id},'{$cep}','{$rua}','{$numero}','{$bairro}','{$cidade}','{$estado}')";
+                                                                            
+                                                                            if(mysqli_query($conn, $sql_pessoa_endereco)){
+                                                                                $sql_pessoa_contato_telefone = "INSERT INTO PESSOACONTATO(PESSOACONTATO_PESSOA, PESSOACONTATO_TIPO, PESSOACONTATO_CONTATO) VALUES({$pessoa_id},'F','{$telefone}')";
+                                                                                
+                                                                                $sql_pessoa_contato_celular = "INSERT INTO PESSOACONTATO(PESSOACONTATO_PESSOA, PESSOACONTATO_TIPO, PESSOACONTATO_CONTATO) VALUES({$pessoa_id},'C','{$celular}')";
+                                                                                
+                                                                                mysqli_query($conn, $sql_pessoa_contato_telefone);
+                                                                                mysqli_query($conn, $sql_pessoa_contato_celular);
+                                                                                
+                                                                                echo "success";
+                                                                            }else{
+                                                                                echo "erro_inserir_endereco";
+                                                                            }   
+                                                                        }
+                                                                    }else{
+                                                                        echo "erro_inserir_pessoa";
+                                                                    }
+                                                                    
+                                                                    
                                                                 }else{
                                                                     echo "erro_senha_diferentes";
                                                                 }
