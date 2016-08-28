@@ -1,4 +1,9 @@
-<?php include("paginas/processamento_banco.php");?>
+<?php 
+    include("paginas/processamento_banco.php");
+    if(isset($_SESSION['usuario-usuario'])){
+        header("Location: home.php");
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,7 +38,7 @@
                       <button class="navbar-toggler hidden-sm-up pull-xs-left pull-sm-left" type="button" data-toggle="collapse" data-target="#collapsingNavbar2" aria-controls="collapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
                         &#9776;
                       </button>
-                      <a class="navbar-brand hidden-sm-up pull-xs-left pull-sm-left" href="http://guilou.me"><img src="img/icon_television.png" alt="Logo" height="32" width="32"></a>
+                      <a class="navbar-brand hidden-sm-up pull-xs-left pull-sm-left" href=""><img src="img/icon_television.png" alt="Logo" height="32" width="32"></a>
                       <a class="navbar-brand hidden-sm-up" href="">Login - <span class="text-danger font-weight-bold">a</span>lert.Me</a>
                       <hr class="hidden-sm-up">    
                       <div class="collapse navbar-toggleable-xs" id="collapsingNavbar2">

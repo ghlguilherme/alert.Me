@@ -9,9 +9,8 @@
  
  while($tupla = mysqli_fetch_row($result)){
      if($tupla[0] == $usuario && $tupla[1] == md5($senha)){
-         //Criação de uma nova sessão
-         session_destroy();
-         session_start();
+         //Atualiza os dados da sessão do usuário/ Cria a sessão
+         atualiza_sessao($usuario);
          echo "success";
      }else{
          echo "erro";

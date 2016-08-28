@@ -1,4 +1,7 @@
 <?php
+    //Criação da sessão
+    session_start();
+    //Definição do fuso horário
     date_default_timezone_set('America/Sao_Paulo');
 
     function conecta_bd(){
@@ -28,7 +31,7 @@
         return $dados;
     }
 
-    function atualiza_sessao($usuario){
+    function atualiza_sessao($user){
         //Obtém todos os dados do usuário os coloca disponíveis na sessão
         $pessoa_id = null;
         $nome = null;
@@ -44,7 +47,7 @@
         $telefone = null;
         $celular = null;
         
-        $sql_select_pessoa = "SELECT PESSOA_ID, PESSOA_NOME, PESSOA_NASCIMENTO, PESSOA_USUARIO, PESSOA_EMAIL FROM PESSOA WHERE PESSOA_USUARIO = '{$usuario}'";
+        $sql_select_pessoa = "SELECT PESSOA_ID, PESSOA_NOME, PESSOA_NASCIMENTO, PESSOA_USUARIO, PESSOA_EMAIL FROM PESSOA WHERE PESSOA_USUARIO = '{$user}'";
         
         //Obtém conexão com o banco de dados
         $conn = conecta_bd();
@@ -100,5 +103,7 @@
         $_SESSION['usuario-estado'] = $estado;
         $_SESSION['usuario-telefone'] = $telefone;
         $_SESSION['usuario-celular'] = $celular;
+        
+        mysqli_close($conn);
     }
 ?>

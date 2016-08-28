@@ -151,7 +151,7 @@ $(document).ready(function () {
         });
         request.done(function (response, textStatus, jqXHR) {
             if (response === 'success') {
-                alert("Sucesso no login");
+                location.href = "home.php";
             }
             else {
                 alert("Usuário ou senha incorreto: " + response);

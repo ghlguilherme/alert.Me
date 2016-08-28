@@ -1,0 +1,35 @@
+body {
+    height: 100%;
+}
+img {
+    max-width: 100%;
+}
+.navbar-toggler{
+    color: white;
+}
+.section-content {
+    padding: 5rem 0;
+}
+#footer-main {
+    background: #222;
+    color: white;
+    font-size: 0.8rem;
+    padding-top: 2.5rem;
+    text-align: left;
+    margin-bottom: 0rem;
+    padding-bottom: 2.5rem;
+}
+#cover {
+    padding-top: 5rem;
+    padding-bottom: 3.5rem;
+    /*background: #222 url('../../img/papel-parede.jpg') center center no-repeat;*/
+    background-size: cover;
+    color: black;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+a{
+    color: gray;
+}
