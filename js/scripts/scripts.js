@@ -385,7 +385,3 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip();
     
 });
-
-function exibeMensagem(texto){
-
-}
