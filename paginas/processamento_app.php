@@ -1,9 +1,9 @@
 <?php 
     include "processamento_banco.php";
     ## Página de processamento geral da aplicação
-    ## Opcao 1 - Encerra sessão do usuário
-    ## Opcao 2 - Atualiza dados do usuário
-
+    ## Opção 1 - Encerra sessão do usuário
+    ## Opção 2 - Atualiza dados do usuário
+    ## Opçao 3 - Altera a senha do usuário
 
     $opcao = isset($_POST['opcao']) ? $_POST['opcao'] : null;
     $opcao = intval($opcao);
@@ -146,6 +146,32 @@
         
         
     }else if($opcao == 3){
+        //Operação de alteração da senha do usuário
+        $senha = isset($_POST['senha-nova']) ? $_POST['senha-nova'] : null;
+        $contrasenha = isset($_POST['senha-nova-repete']) ? $_POST['senha-nova-repete'] : null;
+        
+        //Validação das senhas
+        if($senha != null){
+            if($contrasenha != null){
+                if($senha == $contrasenha){
+                    $nova_senha_criptografada = md5($senha);
+                    
+                    $sql_update_pessoa_senha = "UPDATE PESSOA SET PESSOA_SENHA = '{$nova_senha_criptografada}' WHERE PESSOA_USUARIO = '{$_SESSION['usuario-usuario']}'";
+                    
+                    //Guarda conexão com o banco de dados
+                    $conn = conecta_bd();
+                    mysqli_query($conn, $sql_update_pessoa_senha);
+                    mysqli_close($conn);
+                    echo "success";
+                }else{
+                    echo "erro_senhas_diferentes";
+                }
+            }else{
+                echo "erro_contrasenha";
+            }
+        }else{
+            echo "erro_senha";
+        }
         
     }else if($opcao == 4){
         

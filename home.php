@@ -282,12 +282,17 @@
                                 <label for="senha-nova" class="form-control-sm">Nova Senha: </label>
                             <div class="input-group input-group-sm">
                                 <input type="password" class="form-control form-control-sm" placeholder="Senha" id="senha-nova" name="senha-nova" aria-describedby="basic-addon2">
-                                <span class="input-group-addon" id="basic-addon2"><i class="fa fa-camera-retro fa-lg"></i></span>
+                               <span class="input-group-btn">
+                                   <button class="btn btn-secondary" type="button" id="show-password1"><i id="olho1" class="fa fa-eye" aria-hidden="true"></i></button>
+                              </span>
                             </div>
                                <label for="senha-nova-repete" class="form-control-sm">Repita Senha: </label>
                             <div class="input-group input-group-sm">      
                                 <input type="password" class="form-control form-control-sm" placeholder="Contrasenha" id="senha-nova-repete" name="senha-nova-repete" aria-describedby="basic-addon2">
-                                <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></span>
+                           
+                           <span class="input-group-btn">
+                               <button class="btn btn-secondary" type="button" id="show-password2"><i id="olho2" class="fa fa-eye" aria-hidden="true"></i></button>
+                          </span>
                             </div>
                        </div>
                     </div>

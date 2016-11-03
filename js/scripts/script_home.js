@@ -108,9 +108,14 @@ $(document).ready(function () {
         request.done(function (response, textStatus, jqXHR) {
             if (response === 'success') {
                 alert('Sua senha foi alterada!');
-                
-            }
-            else {
+                $('#modal-senha').modal('toggle');
+            }else if(response === 'erro_senha'){
+                alert('A senha não pode ser vazia!');
+            }else if(response === 'erro_contrasenha'){
+                alert('Digite novamente a senha!');
+            }else if(response === 'erro_senhas_diferentes'){
+                alert('As senhas nos campos não correspondem!');   
+            }else {
                 alert("Erro ao realizar operação: " + response);
             }
         });
@@ -121,5 +126,30 @@ $(document).ready(function () {
             $inputs.prop("disabled", false);
         });
         event.preventDefault();
+    });
+    
+    //Controle da exibição da senha conforme os botões
+    var controle1 = 0, controle2 = 0;
+    $("#show-password1").click(function(event){
+         if(controle1 == 0){
+             $("#senha-nova").attr('type', 'text');
+             $("#olho1").attr('class', 'fa fa-eye-slash');
+             controle1 = 1;
+         }else{
+             $("#senha-nova").attr('type', 'password');
+             $("#olho1").attr('class', 'fa fa-eye');
+             controle1 = 0;
+         }
+    });
+    $("#show-password2").click(function(event){
+         if(controle2 == 0){
+             $("#senha-nova-repete").attr('type', 'text');
+             $("#olho2").attr('class', 'fa fa-eye-slash');
+             controle2 = 1;
+         }else{
+             $("#senha-nova-repete").attr('type', 'password');
+             $("#olho2").attr('class', 'fa fa-eye');
+             controle2 = 0;
+         }
     });
 });
