@@ -70,7 +70,7 @@
                     <form id="form-login">
                         <div class="form-group">
                             <label class="sr-only">Usuário</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="Usuário" name="txt-usuario" id="txt-usuario-login">
+                            <input type="text" class="form-control form-control-lg" placeholder="Usuário" name="txt-usuario" id="txt-usuario-login" autofocus>
                         </div>
                         <div class="form-group">
                             <label class="sr-only">Senha</label>

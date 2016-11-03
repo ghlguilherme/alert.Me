@@ -1,31 +1,33 @@
-<?php
+<?php 
     include "processamento_banco.php";
+    ## Página de processamento geral da aplicação
+    ## Opcao 1 - Encerra sessão do usuário
+    ## Opcao 2 - Atualiza dados do usuário
 
-    $nome = isset($_POST['txt-nome']) ? $_POST['txt-nome'] : null;
-    $nascimento = isset($_POST['txt-nascimento']) ? $_POST['txt-nascimento'] : null;
-    $usuario = isset($_POST['txt-usuario']) ? $_POST['txt-usuario'] : null;    
-    $cep = isset($_POST['txt-cep']) ? $_POST['txt-cep'] : null;
-    $rua = isset($_POST['txt-rua']) ? $_POST['txt-rua'] : null;
-    $numero = isset($_POST['txt-numero']) ? $_POST['txt-numero'] : null;
-    $bairro = isset($_POST['txt-bairro']) ? $_POST['txt-bairro'] : null;
-    $cidade = isset($_POST['txt-cidade']) ? $_POST['txt-cidade'] : null;
-    $estado = isset($_POST['select-estado']) ? $_POST['select-estado'] : null;
-    $telefone = isset($_POST['txt-telefone']) ? $_POST['txt-telefone'] : null;
-    $celular = isset($_POST['txt-celular']) ? $_POST['txt-celular'] : null;
-    $email = isset($_POST['txt-email']) ? $_POST['txt-email'] : null;
-    $senha = isset($_POST['txt-senha']) ? $_POST['txt-senha'] : null;
-    $contrasenha = isset($_POST['txt-contrasenha']) ? $_POST['txt-contrasenha'] : null;
-    
-    //Verifica se usuário já exite cadastrado na base de dados
-    $sql_usuario = "SELECT PESSOA_USUARIO FROM PESSOA WHERE PESSOA_USUARIO = '".escape_bd($usuario)."'";
 
-     $result = mysqli_query(conecta_bd(), $sql_usuario);
-
-     //Veirifica se existem resultados
-     if(mysqli_num_rows($result) > 0){
-         echo "erro_usuario_existe";
-     }else{
-         if($nome!=null){
+    $opcao = isset($_POST['opcao']) ? $_POST['opcao'] : null;
+    $opcao = intval($opcao);
+    if($opcao == 1){
+        # encerra a sessão do usuário e retorna mensagem de sucesso
+        encerra_sessao();
+        echo "success";
+    }else if($opcao == 2){
+        
+        #Informações a serem atualizadas da tela de visualização e alteração do perfil
+        $nome = isset($_POST['txt-nome-perfil']) ? $_POST['txt-nome-perfil'] : null;
+        $nascimento = isset($_POST['txt-nascimento-perfil']) ? $_POST['txt-nascimento-perfil'] : null;
+        $usuario = isset($_POST['txt-usuario-perfil']) ? $_POST['txt-usuario-perfil'] : null;
+        $email = isset($_POST['txt-email-perfil']) ? $_POST['txt-email-perfil'] : null;
+        $cep = isset($_POST['txt-cep-perfil']) ? $_POST['txt-cep-perfil'] : null;
+        $rua = isset($_POST['txt-rua-perfil']) ? $_POST['txt-rua-perfil'] : null;
+        $numero = isset($_POST['txt-numero-perfil']) ? $_POST['txt-numero-perfil'] : null;
+        $bairro = isset($_POST['txt-bairro-perfil']) ? $_POST['txt-bairro-perfil'] : null;
+        $cidade = isset($_POST['txt-cidade-perfil']) ? $_POST['txt-cidade-perfil'] : null;
+        $estado = isset($_POST['select-estado-perfil']) ? $_POST['select-estado-perfil'] : null;
+        $telefone = isset($_POST['txt-telefone-perfil']) ? $_POST['txt-telefone-perfil'] : null;
+        $celular = isset($_POST['txt-celular-perfil']) ? $_POST['txt-celular-perfil'] : null;
+        
+        if($nome!=null){
             if($nascimento!=null){
                 if($usuario!=null){
                     if($cep!=null){
@@ -37,9 +39,6 @@
                                             if($telefone!=null){
                                                 if($celular!=null){
                                                     if($email!=null){
-                                                        if($senha!=null){
-                                                            if($contrasenha!=null){
-                                                                if(($senha == $contrasenha)){
                                                                     $nome = escape_bd($nome);
                                                                     $nascimento = escape_bd($nascimento);
                                                                     $usuario = escape_bd($usuario);
@@ -52,8 +51,6 @@
                                                                     $telefone = escape_bd($telefone);
                                                                     $celular = escape_bd($celular);
                                                                     $email = escape_bd($email);
-                                                                    $senha = escape_bd($senha);
-                                                                    $contrasenha = escape_bd($contrasenha);
                                                                     
                                                                     //retirando caracteres do cep, telefone e celular
                                                                     $cep = str_replace('-','',$cep);
@@ -69,9 +66,11 @@
                                                                     //Guarda conexão com o banco de dados
                                                                     $conn = conecta_bd();
                                                                     
-                                                                    $sql_pessoa = "INSERT INTO PESSOA(PESSOA_NOME, PESSOA_NASCIMENTO, PESSOA_USUARIO, PESSOA_SENHA, PESSOA_EMAIL) VALUES('{$nome}','".date('Y-m-d',strtotime(str_replace('/','-',$nascimento)))."','{$usuario}','".md5($senha)."','{$email}')";
+                                                                    //Atualizando dados da tabela pessoa
+                                                                    $sql_update_pessoa = "UPDATE PESSOA SET PESSOA_NOME = '{$nome}', PESSOA_NASCIMENTO = '".date('Y-m-d',strtotime(str_replace('/','-',$nascimento)))."', PESSOA_EMAIL = '{$email}' WHERE PESSOA_USUARIO = '{$usuario}'";
+                                                                    
 
-                                                                    if(mysqli_query($conn, $sql_pessoa)){
+                                                                    if(mysqli_query($conn, $sql_update_pessoa)){
                                                                         //Obter o id da pessoa adicionada 
                                                                         $sql_pessoa_id = "SELECT PESSOA_ID FROM PESSOA WHERE PESSOA_USUARIO = '{$usuario}'";
                                                                         
@@ -83,36 +82,31 @@
                                                                          }
                                                                         $pessoa_id = intval($pessoa_id);
                                                                         if($pessoa_id > 0){
-                                                                            $sql_pessoa_endereco = "INSERT INTO PESSOAENDERECO(PESSOAENDERECO_PESSOA, PESSOAENDERECO_CEP, PESSOAENDERECO_RUA, PESSOAENDERECO_NUMERO, PESSOAENDERECO_BAIRRO, PESSOAENDERECO_CIDADE, PESSOAENDERECO_ESTADO) VALUES({$pessoa_id},'{$cep}','{$rua}',{$numero},'{$bairro}','{$cidade}','{$estado}')";
+                                                                            //Atualiza os dados do endereço da pessoa
+                                                                            $sql_update_pessoa_endereco = "UPDATE PESSOAENDERECO SET PESSOAENDERECO_CEP = '{$cep}', PESSOAENDERECO_RUA = '{$rua}', PESSOAENDERECO_NUMERO = '{$numero}', PESSOAENDERECO_BAIRRO = '{$bairro}', PESSOAENDERECO_CIDADE = '{$cidade}', PESSOAENDERECO_ESTADO = '{$estado}' WHERE PESSOAENDERECO_PESSOA = {$pessoa_id}";
                                                                             
-                                                                            if(mysqli_query($conn, $sql_pessoa_endereco)){
-                                                                                $sql_pessoa_contato_telefone = "INSERT INTO PESSOACONTATO(PESSOACONTATO_PESSOA, PESSOACONTATO_TIPO, PESSOACONTATO_CONTATO) VALUES({$pessoa_id},'F','{$telefone}')";
+                                                                            if(mysqli_query($conn, $sql_update_pessoa_endereco)){
                                                                                 
-                                                                                $sql_pessoa_contato_celular = "INSERT INTO PESSOACONTATO(PESSOACONTATO_PESSOA, PESSOACONTATO_TIPO, PESSOACONTATO_CONTATO) VALUES({$pessoa_id},'C','{$celular}')";
+                                                                                //Atualiza dados de contato da pessoa
+                                                                                $sql_update_telefone = "UPDATE PESSOACONTATO SET PESSOACONTATO_CONTATO = '{$telefone}' WHERE PESSOACONTATO_PESSOA = {$pessoa_id} AND PESSOACONTATO_TIPO = 'F'";
                                                                                 
-                                                                                mysqli_query($conn, $sql_pessoa_contato_telefone);
-                                                                                mysqli_query($conn, $sql_pessoa_contato_celular);
+                                                                                $sql_update_celular = "UPDATE PESSOACONTATO SET PESSOACONTATO_CONTATO = '{$celular}' WHERE PESSOACONTATO_PESSOA = {$pessoa_id} AND PESSOACONTATO_TIPO = 'C'";
+                                                                                
+                                                                                mysqli_query($conn, $sql_update_telefone);
+                                                                                mysqli_query($conn, $sql_update_celular);
                                                                                 
                                                                                 mysqli_close($conn);
+                                                                                atualiza_sessao($usuario);
                                                                                 echo "success";
                                                                             }else{
                                                                                 mysqli_rollback($conn);
-                                                                                echo "erro_inserir_endereco";
+                                                                                echo "erro_update_endereco";
                                                                             }
                                                                         }
                                                                     }else{
                                                                         mysqli_rollback($conn);
-                                                                        echo "erro_inserir_pessoa";
+                                                                        echo "erro_update_pessoa";
                                                                     }
-                                                                }else{
-                                                                    echo "erro_senha_diferentes";
-                                                                }
-                                                            }else{
-                                                                echo "erro_contrasenha";
-                                                            }
-                                                        }else{
-                                                            echo "erro_senha";
-                                                        }
                                                     }else{
                                                         echo "erro_email";
                                                     }
@@ -149,5 +143,36 @@
         }else{
             echo "erro_nome";
         }
-     }
+        
+        
+    }else if($opcao == 3){
+        
+    }else if($opcao == 4){
+        
+    }else if($opcao == 5){
+        
+    }else if($opcao == 6){
+        
+    }else if($opcao == 7){
+        
+    }else if($opcao == 8){
+        
+    }else if($opcao == 9){
+        
+    }
+
+    function encerra_sessao(){
+        $_SESSION['usuario-nome'] = null;
+        $_SESSION['usuario-nascimento'] = null;
+        $_SESSION['usuario-usuario'] = null;
+        $_SESSION['usuario-email'] = null;
+        $_SESSION['usuario-cep'] = null;
+        $_SESSION['usuario-rua'] = null;
+        $_SESSION['usuario-numero'] = null;
+        $_SESSION['usuario-bairro'] = null;
+        $_SESSION['usuario-cidade'] = null;
+        $_SESSION['usuario-estado'] = null;
+        $_SESSION['usuario-telefone'] = null;
+        $_SESSION['usuario-celular'] = null;
+    }
 ?>

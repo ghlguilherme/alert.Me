@@ -185,6 +185,7 @@ $(document).ready(function () {
         request.done(function (response, textStatus, jqXHR) {
             if (response === 'success') {
                 alert("Cadastro realizado com sucesso!");
+                location.href = "index.php";
             }else if(response === 'erro_nome'){
                 $( "#txt-nome" ).animate({
                     backgroundColor: "#ff0000",

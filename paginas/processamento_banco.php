@@ -86,6 +86,8 @@
         
         $sql_select_contato_celular = "SELECT PESSOACONTATO_CONTATO FROM PESSOACONTATO WHERE PESSOACONTATO_PESSOA = {$pessoa_id} AND PESSOACONTATO_TIPO = 'C'";
         
+        $result = mysqli_query($conn, $sql_select_contato_celular);
+        
         while($tupla = mysqli_fetch_row($result)){
             $celular = $tupla[0];
         }
