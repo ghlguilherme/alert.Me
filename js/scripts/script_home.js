@@ -57,6 +57,39 @@ $(document).ready(function () {
         event.preventDefault();
     });
     
+    //Requisição ajax de logout2
+    // Variable to hold request
+    var request;
+    $("#btn-sair2").click(function (event) {
+        if (request) {
+            request.abort();
+        }
+        var $form = $("#form-sair2");
+        var $inputs = $form.find("input, select, button, textarea");
+        var serializedData = $form.serialize();
+        $inputs.prop("disabled", true);
+        request = $.ajax({
+            url: "paginas/processamento_app.php"
+            , type: "post"
+            , data: serializedData
+        });
+        request.done(function (response, textStatus, jqXHR) {
+            if (response === 'success') {
+                location.href = "index.php";
+            }
+            else {
+                alert("Erro ao realizar operação: " + response);
+            }
+        });
+        request.fail(function (jqXHR, textStatus, errorThrown) {
+            console.error("Ocorreu o seguinte erro: " + textStatus, errorThrown);
+        });
+        request.always(function () {
+            $inputs.prop("disabled", false);
+        });
+        event.preventDefault();
+    });
+    
     //Requisição de atualização do perfil do usuário
     var request;
     $("#btn-atualizar-dados").click(function (event) {

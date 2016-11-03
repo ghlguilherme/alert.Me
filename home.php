@@ -71,8 +71,8 @@
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-senha">Alterar Minha Senha</button>
                                     <a class="dropdown-item" href="#">Mensagens</a>
                                     <div class="dropdown-divider"></div>
-                                    <form id="form-sair">
-                                        <button class="dropdown-item" id="btn-sair">Sair</button>
+                                    <form id="form-sair2">
+                                        <button class="dropdown-item" id="btn-sair2">Sair</button>
                                         <input type="hidden" name="opcao" value="1">
                                     </form>
                                   </div>
