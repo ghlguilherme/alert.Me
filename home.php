@@ -111,7 +111,7 @@
                                       <hr class="m-y-2">
                                       <p>Nunca se sabe onde o perigo pode estar, com o alert.Me você sabe :>.</p>
                                       <p class="lead">
-                                        <a class="btn btn-primary btn-lg" href="#" role="button">Saiba mais</a>
+                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-info" role="button">Saiba mais</button>
                                       </p>
                                     </div>
                               </div>
@@ -301,6 +301,35 @@
               <div class="modal-footer">
                 <button type="button" id="btn-alterar-senha" class="btn btn-success btn-sm">Salvar Alteração</button>
                 <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">Fechar</button>
+                <input type="hidden" name="opcao" value="3">
+              </div>
+            </div><!-- /.modal-content -->
+           </form>       
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </section>
+    <section id="secao-modal-info">
+        <div class="modal fade" id="modal-info">
+          <div class="modal-dialog" role="document">
+           <form id="form-alterar-senha">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Sobre o alert.Me</h4>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            Colocar Mais informações sobre o sistema...
+                       </div>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Fechar</button>
                 <input type="hidden" name="opcao" value="3">
               </div>
             </div><!-- /.modal-content -->
