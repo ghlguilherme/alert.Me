@@ -46,7 +46,7 @@
                             <a class="dropdown-item" href="#">Meus Dados Pessoais</a>
                             <a class="dropdown-item" href="#">Meus Alertas</a>
                             <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-senha">Alterar Minha Senha</button>
-                            <a class="dropdown-item" href="#">Mensagens</a>
+                            <a class="dropdown-item" href="#">Chat</a>
                             <div class="dropdown-divider"></div>
                             <form id="form-sair">
                                 <button class="dropdown-item" id="btn-sair">Sair</button>
@@ -69,7 +69,7 @@
                                     <a class="dropdown-item" href="#">Meus Dados Pessoais</a>
                                     <a class="dropdown-item" href="#">Meus Alertas</a>
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-senha">Alterar Minha Senha</button>
-                                    <a class="dropdown-item" href="#">Mensagens</a>
+                                    <a class="dropdown-item" href="#">Chat</a>
                                     <div class="dropdown-divider"></div>
                                     <form id="form-sair2">
                                         <button class="dropdown-item" id="btn-sair2">Sair</button>
@@ -99,7 +99,7 @@
                                 <a class="nav-link" data-toggle="tab" href="#mapa">Mapa</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#mensagens">Mensagens</a>
+                                <a class="nav-link" data-toggle="tab" href="#mensagens">Chat</a>
                               </li>
                             </ul>
                             <!-- Tab panes -->
