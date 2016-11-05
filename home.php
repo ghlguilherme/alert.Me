@@ -299,8 +299,8 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" id="btn-alterar-senha" class="btn btn-success btn-sm">Salvar Alteração</button>
-                <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">Fechar</button>
+                <button type="button" id="btn-alterar-senha" class="btn btn-success">Salvar Alteração</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Fechar</button>
                 <input type="hidden" name="opcao" value="3">
               </div>
             </div><!-- /.modal-content -->
@@ -329,7 +329,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
                 <input type="hidden" name="opcao" value="3">
               </div>
             </div><!-- /.modal-content -->
