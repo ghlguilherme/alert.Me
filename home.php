@@ -122,10 +122,10 @@
                             <div class="tab-content">
                               <div class="tab-pane active" id="home" role="tabpanel">
                                     <div class="jumbotron">
-                                      <h1 class="display-4">Bem vindo!</h1>
+                                      <h1 class="display-4">Bem vindo! <i class="fa fa-smile-o" aria-hidden="true"></i></h1>
                                       <p class="lead">Esta é a sua mais nova fonte de informação sobre lugares onde você não deve estar</p>
                                       <hr class="m-y-2">
-                                      <p>Nunca se sabe onde o perigo pode estar, com o alert.Me você sabe :>.</p>
+                                      <p>Nunca se sabe onde o perigo pode estar, com o alert.Me você sabe. </p>
                                       <p class="lead">
                                         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-info" role="button">Saiba mais</button>
                                       </p>
