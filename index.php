@@ -65,7 +65,7 @@
         <div id="cover-caption">
             <div class="container">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1 class="display-3" style="color:white;"><span class="text-danger font-weight-bold">a</span>lert.Me</h1>
+                    <h1 class="display-3" style="color:white;"><span class="font-weight-bold" style="color:red;">a</span>lert.Me</h1>
                     <p style="color:white;">Não seja pego de surpresa faça login e descubra os lugares que você deve evitar </p>
                     <form id="form-login">
                         <div class="form-group">
@@ -81,7 +81,7 @@
                             <button type="button" class="btn btn-primary btn-lg" onclick="location.href='cadastro.php'">Cadastro</button>
                         </div>
                         <div class="form-group">
-                            <a href="" class="text-danger font-weight-bold" data-toggle="modal" data-target="#modal-esqueceu"><h4>Esqueceu usuário ou senha?</h4></a>
+                            <a href="" class="text-warning font-weight-bold" data-toggle="modal" data-target="#modal-esqueceu"><h4>Esqueceu usuário ou senha?</h4></a>
                         </div>
                     </form>
                 </div>

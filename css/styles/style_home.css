@@ -10,10 +10,18 @@ img {
 .section-content {
     padding: 5rem 0;
 }
+#footer-main {
+    background: #222;
+    color: white;
+    font-size: 0.8rem;
+    padding: 2.5rem 0;
+    text-align: left;
+    padding-bottom: 1rem;
+}
 #cover {
     padding-top: 5rem;
     padding-bottom: 3.5rem;
-    /*background: #222 url('../../img/papel-parede.jpg') center center no-repeat;*/
+    /*background: #222 url('../../img/wallpaper-azul.jpg') center center no-repeat; */
     background-size: cover;
     color: black;
     height: 100%;
