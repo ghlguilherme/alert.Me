@@ -45,6 +45,7 @@
             function resizeMap(){
                 google.maps.event.trigger(map, "resize");
             }
+            
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=0.65">
     </head>
@@ -58,10 +59,10 @@
                             &#9776;
                           </button>
                           <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Meus Dados Pessoais</a>
-                            <a class="dropdown-item" href="#">Meus Alertas</a>
+                            <button class="dropdown-item">Meus Dados Pessoais</button>
+                            <button class="dropdown-item">Meus Alertas</button>
                             <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-senha">Alterar Minha Senha</button>
-                            <a class="dropdown-item" href="#">Chat</a>
+                            <button class="dropdown-item">Chat</button>
                             <div class="dropdown-divider"></div>
                             <form id="form-sair">
                                 <button class="dropdown-item" id="btn-sair">Sair</button>
@@ -81,10 +82,10 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">Meus Dados Pessoais</a>
-                                    <a class="dropdown-item" href="#">Meus Alertas</a>
+                                    <button class="dropdown-item">Meus Dados Pessoais</button>
+                                    <button class="dropdown-item">Meus Alertas</button>
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-senha">Alterar Minha Senha</button>
-                                    <a class="dropdown-item" href="#">Chat</a>
+                                    <button class="dropdown-item">Chat</button>
                                     <div class="dropdown-divider"></div>
                                     <form id="form-sair2">
                                         <button class="dropdown-item" id="btn-sair2">Sair</button>
@@ -154,7 +155,7 @@
                                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-email-perfil" class="form-control-sm">Email: </label>
-                                                    <input type="text" class="form-control form-control-sm" id="txt-email-perfil" name="txt-email-perfil" placeholder="Email" value="<?php echo $_SESSION['usuario-email'] ?>">
+                                                    <input type="email" class="form-control form-control-sm" id="txt-email-perfil" name="txt-email-perfil" placeholder="Email" value="<?php echo $_SESSION['usuario-email'] ?>">
                                                 </div>
                                               </div>
                                           </div> 
@@ -182,7 +183,7 @@
                                               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                                  <div class="input-group input-group-sm">
                                                   <label for="txt-numero-perfil" class="form-control-sm">Número: </label>
-                                                <input type="text" class="form-control form-control-sm" id="txt-numero-perfil" name="txt-numero-perfil" placeholder="numero" value="<?php echo $_SESSION['usuario-numero'] ?>">
+                                                <input type="number" class="form-control form-control-sm" id="txt-numero-perfil" name="txt-numero-perfil" placeholder="numero" value="<?php echo $_SESSION['usuario-numero'] ?>">
                                                   </div>
                                               </div>
                                           </div> 
@@ -241,13 +242,13 @@
                                               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-telefone-perfil" class="form-control-sm">Telefone: </label>
-                                                    <input type="text" class="form-control form-control-sm" id="txt-telefone-perfil" name="txt-telefone-perfil" placeholder="Telefone" value="<?php echo $_SESSION['usuario-telefone'] ?>">
+                                                    <input type="tel" class="form-control form-control-sm" id="txt-telefone-perfil" name="txt-telefone-perfil" placeholder="Telefone" value="<?php echo $_SESSION['usuario-telefone'] ?>">
                                                 </div>
                                               </div>
                                               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-celular-perfil" class="form-control-sm">Celular: </label>
-                                                    <input type="text" class="form-control form-control-sm" id="txt-celular-perfil" name="txt-celular-perfil" placeholder="Celular" value="<?php echo $_SESSION['usuario-celular'] ?>">
+                                                    <input type="tel" class="form-control form-control-sm" id="txt-celular-perfil" name="txt-celular-perfil" placeholder="Celular" value="<?php echo $_SESSION['usuario-celular'] ?>">
                                                 </div>
                                               </div>
                                           </div>

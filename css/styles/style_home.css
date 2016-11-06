@@ -16,21 +16,40 @@ img {
     font-size: 0.8rem;
     padding: 2.5rem 0;
     text-align: left;
-    padding-bottom: 1rem;
+    padding-bottom: 5rem;
+}
+.jumbotron{
+    color: black;
 }
 #cover {
     padding-top: 5rem;
     padding-bottom: 3.5rem;
-    /*background: #222 url('../../img/wallpaper-azul.jpg') center center no-repeat; */
+    background: #222 url('../../img/wallpaper-dark-moon.jpg') center center no-repeat;
     background-size: cover;
-    color: black;
+    color: white;
     height: 100%;
     text-align: center;
     display: flex;
     align-items: center;
 }
-a{
-    color: gray;
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
 }
 .area-perfil{
     text-align: left;
@@ -43,4 +62,24 @@ a{
 #area-mapa { 
     height: 400px;
     width: 350px;
+}
+
+/* Centralizar modal na tela */
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px; /* Adjusts for spacing */
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
 }

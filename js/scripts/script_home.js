@@ -5,6 +5,19 @@ $(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function (e) {
 });
 $(document).ready(function () {
    
+    //Função de evento de clique nos botões
+              document.getElementById('btnRoad').addEventListener('click', function(){
+                  map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+              });
+              document.getElementById('btnSat').addEventListener('click', function(){
+                  map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+              });
+              document.getElementById('btnHyb').addEventListener('click', function(){
+                  map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+              });
+              document.getElementById('btnTer').addEventListener('click', function(){
+                  map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+              });
     //Aplicação de máscaras para cep e telefones
     $("#txt-cep-perfil").mask('00000-000');
     $("#txt-telefone-perfil").mask('(00) 0000-0000');
