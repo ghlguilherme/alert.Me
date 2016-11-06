@@ -1,6 +1,10 @@
 //Script de processamento de requisições da página principal
-
+//Recarrega o mapa ao clicar nas abas da página
+$(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function (e) {
+    resizeMap();
+});
 $(document).ready(function () {
+   
     //Aplicação de máscaras para cep e telefones
     $("#txt-cep-perfil").mask('00000-000');
     $("#txt-telefone-perfil").mask('(00) 0000-0000');

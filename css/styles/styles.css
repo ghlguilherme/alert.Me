@@ -21,7 +21,7 @@ img {
 #cover {
     padding-top: 8rem;
     padding-bottom: 3.5rem;
-    background: #222 url('../../img/papel-parede.jpg') center center no-repeat;
+    background: #222 url('../../img/wallpaper-dark-moon.jpg') center center no-repeat;
     background-size: cover;
     color: white;
     height: 100%;
@@ -32,7 +32,7 @@ img {
 #cover-cadastro{
     padding-top: 5rem;
     padding-bottom: 3.5rem;
-    background: #222 url('../../img/tempestade_chegando.jpg') center center no-repeat;
+    background: #222 url('../../img/wallpaper-dark-moon.jpg') center center no-repeat;
     background-size: cover;
     color: white;
     height: 100%;

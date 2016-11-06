@@ -20,7 +20,7 @@
         <script type="application/javascript" src="js/frameworks/jquery.mask.min.js"></script>
         <script type="application/javascript" src="js/frameworks/jquery-ui.min.js"></script>
         <script type="application/javascript" src="js/scripts/scripts.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=0.65">
     </head>
     <body>
         <section class="cabecalho">
@@ -145,12 +145,12 @@
                            </div>
                            <div class="col-xs-4 col-sm-4 col-md-4">
                                     <label for="txt-telefone">Tel. Fixo <span class="font-weight-bold text-danger">*</span></label>
-                                    <input type="text" class="form-control form-control-sm" id="txt-telefone" name="txt-telefone" placeholder="(99) 9999-9999" aria-describedby="telefone-mensagem">
+                                    <input type="tel" class="form-control form-control-sm" id="txt-telefone" name="txt-telefone" placeholder="(99) 9999-9999" aria-describedby="telefone-mensagem">
                                     <small id="telefone-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                            <div class="col-xs-4 col-sm-4 col-md-4">
                                     <label for="txt-celular">Tel. Celular <span class="font-weight-bold text-danger">*</span></label>
-                                    <input type="text" class="form-control form-control-sm" id="txt-celular" name="txt-celular" placeholder="(99) 99999-9999" aria-describedby="celular-mensagem">
+                                    <input type="tel" class="form-control form-control-sm" id="txt-celular" name="txt-celular" placeholder="(99) 99999-9999" aria-describedby="celular-mensagem">
                                     <small id="celular-mensagem" class="form-text font-weight-bold text-danger"></small>
                            </div>
                        </div>

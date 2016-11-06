@@ -28,7 +28,7 @@
         <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.min.js"></script>
         <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.pt-BR.min.js"></script>
         <script type="application/javascript" src="js/scripts/scripts.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=0.7">
     </head>
     <body>
         <section class="cabecalho">
@@ -65,8 +65,8 @@
         <div id="cover-caption">
             <div class="container">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1 class="display-3"><span class="text-danger font-weight-bold">a</span>lert.Me</h1>
-                    <p>Não seja pego de surpresa faça login e descubra os lugares que você deve evitar </p>
+                    <h1 class="display-3" style="color:white;"><span class="text-danger font-weight-bold">a</span>lert.Me</h1>
+                    <p style="color:white;">Não seja pego de surpresa faça login e descubra os lugares que você deve evitar </p>
                     <form id="form-login">
                         <div class="form-group">
                             <label class="sr-only">Usuário</label>
@@ -81,7 +81,7 @@
                             <button type="button" class="btn btn-primary btn-lg" onclick="location.href='cadastro.php'">Cadastro</button>
                         </div>
                         <div class="form-group">
-                            <a href="" class="text-warning font-weight-bold" data-toggle="modal" data-target="#modal-esqueceu">Esqueceu usuário ou senha?</a>
+                            <a href="" class="text-danger font-weight-bold" data-toggle="modal" data-target="#modal-esqueceu"><h4>Esqueceu usuário ou senha?</h4></a>
                         </div>
                     </form>
                 </div>
@@ -120,8 +120,8 @@
             <h4 class="modal-title" id="label-modal-esqueceu">Esqueceu usuário ou senha?</h4>
           </div>
           <div class="modal-body">
-              <label for="txt-email-recuperar">Digite seu email cadastrado para recuperar seus dados.</label>
-              <input type="email" class="form-control form-sm" placeholder="Email" id="txt-email-recuperar">
+              <label for="txt-email-recuperar"><h5>Digite seu email cadastrado para recuperar seus dados.</h5></label>
+              <input type="email" class="form-control form-lg" placeholder="Email" id="txt-email-recuperar">
           </div>
           <div class="modal-footer">
             <button type="button" id="btn-recuperar-senha" class="btn btn-success">Recuperar</button>

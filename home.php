@@ -31,8 +31,22 @@
         <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.pt-BR.min.js"></script>
         <script type="application/javascript" src="js/frameworks/font-awesome.js"></script>
         <script type="application/javascript" src="js/scripts/script_home.js"></script>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQTuyFAnnO-K_BotyXc66VpNwg538J3jk&callback=initMap">
+        </script>
+        <script>
+            var map;
+            function initMap() {
+              map = new google.maps.Map(document.getElementById('area-mapa'), {
+                center: {lat: -21.784, lng: -48.178},
+                zoom: 14
+              });
+            }
+            function resizeMap(){
+                google.maps.event.trigger(map, "resize");
+            }
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=0.65">
     </head>
     <body>
         <section class="cabecalho">
@@ -94,7 +108,7 @@
                                 <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#perfil">Perfil</a>
+                                <a class="nav-link" data-toggle="tab" href="#perfil">Meu Perfil</a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#mapa">Mapa</a>
@@ -269,18 +283,7 @@
                                                         <div id="area-mapa">
                                                             <!-- Área de plotagem do mapa do google maps -->
                                                         </div>
-                                                        <script async defer
-                                                          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQTuyFAnnO-K_BotyXc66VpNwg538J3jk&callback=initMap">
-                                                        </script>
-                                                        <script type="text/javascript" async defer>
-                                                            var map;
-                                                            function initMap() {
-                                                              map = new google.maps.Map(document.getElementById('area-mapa'), {
-                                                                center: {lat: -21.784, lng: -48.178},
-                                                                zoom: 14
-                                                              });
-                                                            }
-                                                        </script>
+                                                        
                                                    </div>
                                                </div>
                                             </div>
