@@ -27,3 +27,8 @@ a{
 .area-perfil{
     text-align: left;
 }
+
+.nopadding{
+    padding: 0 !important;
+    margin: 0 !important;
+}

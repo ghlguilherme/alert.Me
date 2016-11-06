@@ -87,7 +87,7 @@
         <section id="cover">
         <div id="cover-caption">
             <div class="container-fluid">
-                <div class="col-xs-12 col-sm-12 col-md-9">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <ul class="nav nav-tabs">
                               <li class="nav-item">
                                 <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
@@ -120,7 +120,7 @@
                                      <form id="form-perfil">
                                        <div class="container">
                                           <div class="row">
-                                              <div class="col-xs-12 col-sm-12 col-md-12">
+                                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                <div class="input-group input-group-sm">
                                                   <label for="txt-nome-perfil" class="form-control-sm">Nome: </label>
                                                   <input type="text" class="form-control form-control-sm" id="txt-nome-perfil" name="txt-nome-perfil" placeholder="Nome" value="<?php echo $_SESSION['usuario-nome'] ?>">
@@ -128,7 +128,7 @@
                                            </div>
                                           </div>
                                           <div class="row">
-                                              <div class="col-xs-12 col-sm-12 col-md-12">
+                                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-usuario-perfil" class="form-control-sm">Username: </label>
                                                     <input type="text" class="form-control form-control-sm" id="txt-usuario-perfil" name="txt-usuario-perfil" placeholder="Username" value="<?php echo $_SESSION['usuario-usuario'] ?>" readonly>
@@ -136,7 +136,7 @@
                                               </div>
                                           </div>   
                                           <div class="row">
-                                              <div class="col-xs-12 col-sm-12 col-md-12">
+                                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-email-perfil" class="form-control-sm">Email: </label>
                                                     <input type="text" class="form-control form-control-sm" id="txt-email-perfil" name="txt-email-perfil" placeholder="Email" value="<?php echo $_SESSION['usuario-email'] ?>">
@@ -144,13 +144,13 @@
                                               </div>
                                           </div> 
                                           <div class="row">
-                                             <div class="col-xs-6 col-sm-6 col-md-6">
+                                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-nascimento-perfil" class="form-control-sm">Dt. Nascimento: </label>
                                                     <input type="text" class="form-control form-control-sm" id="txt-nascimento-perfil" name="txt-nascimento-perfil" placeholder="Nascimento" value="<?php echo $_SESSION['usuario-nascimento'] ?>">
                                                 </div>
                                               </div>
-                                              <div class="col-xs-6 col-sm-6 col-md-6">
+                                              <div class="col-xs-6 col-sm-6 col-md-6 col col-lg-6">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-cep-perfil" class="form-control-sm">CEP: </label>
                                                     <input type="text" class="form-control form-control-sm" id="txt-cep-perfil" name="txt-cep-perfil" placeholder="CEP" value="<?php echo $_SESSION['usuario-cep'] ?>">
@@ -158,13 +158,13 @@
                                               </div>
                                           </div> 
                                           <div class="row">
-                                              <div class="col-xs-8 col-sm-8 col-md-8">
+                                              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                                  <div class="input-group input-group-sm">
                                                   <label for="txt-rua-perfil" class="form-control-sm">Rua: </label>
                                                 <input type="text" class="form-control form-control-sm" id="txt-rua-perfil" name="txt-rua-perfil" placeholder="Rua" value="<?php echo $_SESSION['usuario-rua'] ?>">
                                                   </div>
                                               </div>
-                                              <div class="col-xs-4 col-sm-4 col-md-4">
+                                              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                                  <div class="input-group input-group-sm">
                                                   <label for="txt-numero-perfil" class="form-control-sm">Número: </label>
                                                 <input type="text" class="form-control form-control-sm" id="txt-numero-perfil" name="txt-numero-perfil" placeholder="numero" value="<?php echo $_SESSION['usuario-numero'] ?>">
@@ -172,7 +172,7 @@
                                               </div>
                                           </div> 
                                           <div class="row">
-                                              <div class="col-xs-12 col-sm-12 col-md-12">
+                                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-bairro-perfil" class="form-control-sm">Bairro: </label>
                                                     <input type="text" class="form-control form-control-sm" id="txt-bairro-perfil" name="txt-bairro-perfil" placeholder="Bairro" value="<?php echo $_SESSION['usuario-bairro'] ?>">
@@ -180,13 +180,13 @@
                                               </div>
                                           </div> 
                                           <div class="row">
-                                              <div class="col-xs-8 col-sm-8 col-md-8">
+                                              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-cidade-perfil" class="form-control-sm">Cidade: </label>
                                                     <input type="text" class="form-control form-control-sm" id="txt-cidade-perfil" name="txt-cidade-perfil" placeholder="Cidade" value="<?php echo $_SESSION['usuario-cidade'] ?>">
                                                 </div>
                                               </div>
-                                              <div class="col-xs-4 col-sm-4 col-md-4">
+                                              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                                   <div class="input-group input-group-sm">
                                                     <label for="select-estado-perfil" class="form-control-sm">Estado: </label>
                                                      <select class="form-control form-control-sm" id="select-estado-perfil" name="select-estado-perfil">
@@ -223,13 +223,13 @@
                                               </div>
                                           </div> 
                                           <div class="row">
-                                              <div class="col-xs-6 col-sm-6 col-md-6">
+                                              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-telefone-perfil" class="form-control-sm">Telefone: </label>
                                                     <input type="text" class="form-control form-control-sm" id="txt-telefone-perfil" name="txt-telefone-perfil" placeholder="Telefone" value="<?php echo $_SESSION['usuario-telefone'] ?>">
                                                 </div>
                                               </div>
-                                              <div class="col-xs-6 col-sm-6 col-md-6">
+                                              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                   <div class="input-group input-group-sm">
                                                     <label for="txt-celular-perfil" class="form-control-sm">Celular: </label>
                                                     <input type="text" class="form-control form-control-sm" id="txt-celular-perfil" name="txt-celular-perfil" placeholder="Celular" value="<?php echo $_SESSION['usuario-celular'] ?>">
@@ -237,7 +237,7 @@
                                               </div>
                                           </div>
                                           <div class="row">
-                                              <div class="col-xs-12 col-sm-12 col-md-12">
+                                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                   <div class="input-group input-group-lg">
                                                       <br>     
                                                       <input type="hidden" name="opcao" value="2">
@@ -251,12 +251,22 @@
                               </div>
                               <div class="tab-pane" id="mapa" role="tabpanel">
                                     <div class="jumbotron">
-                                      
+                                      <section id="mapa-cabecalho">
+                                          
+                                      </section>
+                                      <section id="mapa-corpo">
+                                          
+                                      </section>
                                     </div>
                               </div>
                               <div class="tab-pane" id="mensagens" role="tabpanel">
                                     <div class="jumbotron">
-                                      
+                                      <section id="chat-cabecalho">
+                                          
+                                      </section>
+                                      <section id="chat-corpo">
+                                          
+                                      </section>
                                     </div>
                               </div>
                             </div>

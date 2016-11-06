@@ -64,7 +64,7 @@
         <section id="cover">
         <div id="cover-caption">
             <div class="container">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <h1 class="display-3"><span class="text-danger font-weight-bold">a</span>lert.Me</h1>
                     <p>Não seja pego de surpresa faça login e descubra os lugares que você deve evitar </p>
                     <form id="form-login">
@@ -91,13 +91,13 @@
     <footer id="footer-main">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                             <p>copyright 2016. guilou.me.</p>
                             <p>developed by <a href="http://guilou.me">Guilherme Lourenço</a></p>
                         </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                             <ul class="list-unstyled">
                                 <li><a href="">home</a></li>
                                 <li><a href="">cadastro</a></li>
@@ -120,11 +120,12 @@
             <h4 class="modal-title" id="label-modal-esqueceu">Esqueceu usuário ou senha?</h4>
           </div>
           <div class="modal-body">
-              <h3>Digite seu email cadastrado para recuperar seus dados.</h3>
-              <input type="email" class="form-control form-lg" placeholder="Email" id="txt-email-recuperar">
+              <label for="txt-email-recuperar">Digite seu email cadastrado para recuperar seus dados.</label>
+              <input type="email" class="form-control form-sm" placeholder="Email" id="txt-email-recuperar">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" id="btn-recuperar-senha" class="btn btn-success">Recuperar</button>
+            <button type="button" class="btn btn-warning" data-dismiss="modal">Fechar</button>
           </div>
         </div>
       </div>
