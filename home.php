@@ -31,6 +31,7 @@
         <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.pt-BR.min.js"></script>
         <script type="application/javascript" src="js/frameworks/font-awesome.js"></script>
         <script type="application/javascript" src="js/scripts/script_home.js"></script>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -118,7 +119,7 @@
                               <div class="tab-pane" id="perfil" role="tabpanel">
                                  <div class="area-perfil">
                                      <form id="form-perfil">
-                                       <div class="container">
+                                       <div class="container-fluid">
                                           <div class="row">
                                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                <div class="input-group input-group-sm">
@@ -250,17 +251,44 @@
                                  </div>
                               </div>
                               <div class="tab-pane" id="mapa" role="tabpanel">
-                                    <div class="jumbotron">
-                                      <section id="mapa-cabecalho">
-                                          
-                                      </section>
-                                      <section id="mapa-corpo">
-                                          
-                                      </section>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                               <br>
+                                                <input id="btnRoad" type="button" class="btn btn-primary btn-sm" value="Estrada">
+                                                <input id="btnSat" type="button" class="btn btn-danger btn-sm" value="Satélite">
+                                                <input id="btnHyb" type="button" class="btn btn-success btn-sm" value="Híbrido">
+                                                <input id="btnTer" type="button" class="btn btn-warning btn-sm" value="Terreno">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                               <div class="card">
+                                                   <div class="card-block">
+                                                        <div id="area-mapa">
+                                                            <!-- Área de plotagem do mapa do google maps -->
+                                                        </div>
+                                                        <script async defer
+                                                          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQTuyFAnnO-K_BotyXc66VpNwg538J3jk&callback=initMap">
+                                                        </script>
+                                                        <script type="text/javascript" async defer>
+                                                            var map;
+                                                            function initMap() {
+                                                              map = new google.maps.Map(document.getElementById('area-mapa'), {
+                                                                center: {lat: -21.784, lng: -48.178},
+                                                                zoom: 14
+                                                              });
+                                                            }
+                                                        </script>
+                                                   </div>
+                                               </div>
+                                            </div>
+                                        </div>
                                     </div>
                               </div>
                               <div class="tab-pane" id="mensagens" role="tabpanel">
-                                    <div class="jumbotron">
+                                    <div class="area-chat">
                                       <section id="chat-cabecalho">
                                           
                                       </section>
