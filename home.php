@@ -45,7 +45,6 @@
             function resizeMap(){
                 google.maps.event.trigger(map, "resize");
             }
-            
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=0.65">
     </head>

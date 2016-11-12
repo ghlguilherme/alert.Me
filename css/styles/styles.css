@@ -1,6 +1,4 @@
-body {
-    height: 100%;
-}
+html, body {height:100%;}
 img {
     max-width: 100%;
 }
@@ -17,6 +15,9 @@ img {
     padding: 2.5rem 0;
     text-align: left;
     padding-bottom: 2.5rem;
+    position:relative;
+	bottom:0;
+	width:100%;
 }
 #cover {
     padding-top: 8rem;
@@ -28,6 +29,8 @@ img {
     text-align: center;
     display: flex;
     align-items: center;
+    min-height:100%;
+	position:relative;
 }
 #cover-cadastro{
     padding-top: 5rem;
@@ -57,6 +60,7 @@ img {
 }
 
 /* Centralizar modal na tela */
+/*
 .modal {
   text-align: center;
   padding: 0!important;
@@ -67,7 +71,7 @@ img {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
-  margin-right: -4px; /* Adjusts for spacing */
+  margin-right: -4px; 
 }
 
 .modal-dialog {
@@ -75,3 +79,4 @@ img {
   text-align: left;
   vertical-align: middle;
 }
+*/

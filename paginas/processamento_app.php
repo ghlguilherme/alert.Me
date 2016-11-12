@@ -4,6 +4,7 @@
     ## Opção 1 - Encerra sessão do usuário
     ## Opção 2 - Atualiza dados do usuário
     ## Opçao 3 - Altera a senha do usuário
+    ## Opção 4 - Recupera a senha do usuário
 
     $opcao = isset($_POST['opcao']) ? $_POST['opcao'] : null;
     $opcao = intval($opcao);
@@ -174,6 +175,7 @@
         }
         
     }else if($opcao == 4){
+        //Operação de recuperação de senha do usuário
         
     }else if($opcao == 5){
         
