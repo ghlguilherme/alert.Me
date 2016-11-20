@@ -202,4 +202,8 @@ $(document).ready(function () {
              controle2 = 0;
          }
     });
+    
+    $("#novo-alerta").click(function (event) {
+        location.href = "mapa.php";
+    });
 });

@@ -90,3 +90,20 @@ a:active {
   vertical-align: middle;
 }
 */
+#novo-alerta {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 22px;
+      margin-bottom: 22px;
+      z-index: 900;
+}
+#alertas-corpo{
+    color: black;
+}
+.card-img-top{
+    padding-top: 1.5rem;
+    height: 128px;
+    width: 128px;
+}

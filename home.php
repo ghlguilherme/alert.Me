@@ -158,7 +158,7 @@
                                 <a class="nav-link" data-toggle="tab" href="#mapa">Mapa</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#mensagens">Alertas</a>
+                                <a class="nav-link" data-toggle="tab" href="#alertas">Alertas</a>
                               </li>
                             </ul>
                             <!-- Tab panes -->
@@ -329,13 +329,24 @@
                                         </div>
                                     </div>
                               </div>
-                              <div class="tab-pane" id="mensagens" role="tabpanel">
-                                    <div class="area-chat">
-                                      <section id="chat-cabecalho">
-                                          
+                              <div class="tab-pane" id="alertas" role="tabpanel">
+                                    <div class="area-alertas">
+                                      <section id="alertas-cabecalho">
+                                         <br>
+                                          <button type="button" class="btn btn-danger btn-md btn-block" data-toggle="modal" data-target="#modal-alertas">Mostrar Meus Alertas</button>
+                                          <br>
+                                          <button type="button" class="btn btn-success btn-md btn-block" id="btn-mostrar-mapa" onclick="location.href='mapa.php';">Mostrar mapa de alertas</button>
+                                          <br>
                                       </section>
-                                      <section id="chat-corpo">
-                                          
+                                      <section id="alertas-corpo">
+                                          <div class="card">
+                                              <img class="card-img-top" src="img/fale-conosco.png" alt="Imagem fale conosco">
+                                              <div class="card-block">
+                                                <h4 class="card-title">Tem Dúvidas?</h4>
+                                                <p class="card-text">Mande um email para nós! É simples.<br> <a href="mailto:suporte@guilou.me?Subject=Suporte" style="color:blue;">suporte@guilou.me</a><br> Ou visite nosso site.</p>
+                                                <a href="https://guilou.me" class="btn btn-warning">Ir para o site</a>
+                                              </div>
+                                          </div>
                                       </section>
                                     </div>
                               </div>
@@ -440,5 +451,41 @@
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
     </section>
+    <section id="secao-modal-alertas">
+        <div class="modal fade" id="modal-alertas">
+          <div class="modal-dialog" role="document">
+           <form id="form-alterar-senha">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Minhas indicações de Alertas</h4>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <p>Últimos Alertas indicado por mim</p>
+                            <ul>
+                                <li>Exemplo 1</li>
+                                <li>Exemplo 2</li>
+                                <li>Exemplo 3</li>
+                                <li>Exemplo 4</li>
+                            </ul>
+                       </div>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
+                <input type="hidden" name="opcao" value="3">
+              </div>
+            </div><!-- /.modal-content -->
+           </form>       
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </section>
+    <button type="button" class="btn btn-outline-danger btn-lg" id="novo-alerta">Novo Alerta</button>
     </body>
 </html>
