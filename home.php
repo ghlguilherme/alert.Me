@@ -486,6 +486,6 @@
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
     </section>
-    <button type="button" class="btn btn-outline-danger btn-lg" id="novo-alerta">Novo Alerta</button>
+    <button type="button" class="btn btn-danger btn-lg" id="novo-alerta">Novo Alerta</button>
     </body>
 </html>

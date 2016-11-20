@@ -66,6 +66,14 @@
                 zoom: 14
               });
                 
+                
+             //adiciona um evento de clique ao mapa
+             map.addListener('click', function(e) {
+                 placeMarkerAndPanTo(e.latLng, map);
+             });
+                
+                
+                
               if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
                     function(position) {
@@ -88,6 +96,15 @@
                 });
                 
                 map.setCenter(devCenter);
+            }
+            
+            function placeMarkerAndPanTo(latLng, map) {
+              var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                icon : 'http://guilou.me/alertme/img/icon-marker.png'  
+              });
+              map.panTo(latLng);
             }
             function resizeMap(){
                 google.maps.event.trigger(map, "resize");

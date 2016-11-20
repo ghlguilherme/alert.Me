@@ -5,6 +5,7 @@
     ## Opção 2 - Atualiza dados do usuário
     ## Opçao 3 - Altera a senha do usuário
     ## Opção 4 - Recupera a senha do usuário
+    ## Opção 5 - Adicionar alerta ao mapa
 
     $opcao = isset($_POST['opcao']) ? $_POST['opcao'] : null;
     $opcao = intval($opcao);
@@ -178,6 +179,33 @@
         //Operação de recuperação de senha do usuário
         
     }else if($opcao == 5){
+        //Operação de adicionar alerta no mapa e salvar no banco de dados
+        $descricao = isset($_POST['alerta-descricao']) ? $_POST['alerta-descricao'] : null;
+        $latitude = isset($_POST['alerta-latitude']) ? $_POST['alerta-latitude'] : null;
+        $longitude = isset($_POST['alerta-longitude']) ? $_POST['alerta-longitude'] : null;
+        $usuario = $_SESSION['usuario-usuario'];
+        
+        if($descricao!=null && $descricao!=""){
+            if($latitude!=null && $latitude!=""){
+                if($longitude!=null && $longitude!=""){
+                    //Insere alerta no banco de dados
+                    $sql_insert_alerta = "INSERT INTO ALERTA(ALERTA_PESSOA, ALERTA_DESCRICAO, ALERTA_LATITUDE, ALERTA_LONGITUDE) VALUES('{$usuario}','{$descricao}',{$latitude},{$longitude})";
+                    
+                    //Guarda conexão com o banco de dados
+                    $conn = conecta_bd();
+                    mysqli_query($conn, $sql_insert_alerta);
+                    mysqli_close($conn);
+                    echo "success";
+                }else{
+                    echo "erro_longitude";
+                }
+            }else{
+                echo "erro_latitude";
+            }
+        }else{
+            echo "erro_descricao";
+        }
+        
         
     }else if($opcao == 6){
         
