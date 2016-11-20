@@ -30,7 +30,8 @@
    <script type="text/javascript">
         var map;
         var devCenter = {lat: -21.784, lng: -48.178};
-       
+        //este array armazena os marcadores para os alertas do mapa
+        var marcadores = new Array();
        function RetornarCentro(controlDiv, map) {
 
           // Set CSS for the control border.
@@ -259,8 +260,57 @@
                 infowindow.open(map, marker);
             });
 
+            
+            //Aqui todos os pontos do são recuperados do banco de dados para o mapa
+            //parte em PHP
+            <?php
+                $conn = conecta_bd();
+                    
+                    $sql_select_alertas = "SELECT ALERTA_ID, ALERTA_PESSOA, ALERTA_DESCRICAO, ALERTA_DATAHORA, ALERTA_LATITUDE, ALERTA_LONGITUDE, ALERTA_PESO FROM ALERTA";
+                    
+                    $result = mysqli_query($conn, $sql_select_alertas);
+                    while($tupla = mysqli_fetch_row($result)){
+                        ?>
+                                    //Parte em JavaScript
+                                    var marcador = {id:<?php echo $tupla[0]; ?>, usuario: '<?php echo $tupla[1]; ?>', descricao: '<?php echo $tupla[2]; ?>', datahora: '<?php echo date('d/m/Y h:i a', strtotime($tupla[3])); ?>', latitude: <?php echo $tupla[4]; ?>, longitude: <?php echo $tupla[5]; ?>, peso: <?php echo $tupla[6]; ?>};
+                                    
+                                    marcadores.push(marcador);
+                        <?php
+                    }
+                    mysqli_close($conn);
+            ?>
+            
+            //Aqui adicionaremos os marcadores diretamente no mapa
+            var infowindow2 =  new google.maps.InfoWindow({
+                content: ""
+            });
+            
+            for(var i = 0; i < marcadores.length; i++){
+                var ponto = {lat: marcadores[i].latitude, lng: marcadores[i].longitude};
+                var marker2 = new google.maps.Marker({
+                    position: ponto,
+                    map: map,
+                    draggable:false,
+                    title: marcadores[i].descricao,
+                    icon : 'http://guilou.me/alertme/img/icon-marker.png'
+                });
+    
+                var descricao = "<div><strong>Usuário:</strong> "+marcadores[i].usuario+" <br><strong>Descrição:</strong> "+marcadores[i].descricao+" <br><strong>Data e Horário:</strong> "+marcadores[i].datahora+" <br><strong>Latitude:</strong> "+marcadores[i].latitude+" <br><strong>Longitude:</strong> "+marcadores[i].longitude+"<hr><strong>Nível de Confiança:</strong>  "+marcadores[i].peso+"<hr></div>";
+                
+                //Relaciona marcador com sua janela de informação
+                bindInfoWindow(marker2, map, infowindow2, descricao);
+                
+            }
             map.setCenter(devCenter);
         }
+       
+        //Esta função permite cada marcador exibir sua própria informação
+        function bindInfoWindow(marker, map, infowindow, description) {
+                marker.addListener('click', function() {
+                    infowindow.setContent(description);
+                    infowindow.open(map, this);
+                });
+            }
   </script>
   </head>
   <body id="map">

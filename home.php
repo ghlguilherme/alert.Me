@@ -481,8 +481,8 @@
                                       <th>ID</th>
                                       <th>DESCRIÇÃO</th>
                                       <th>DATA/HORA</th>
-                                      <th>LATITUDE</th>
-                                      <th>LONGITUDE</th>
+                                      <!--<th>LATITUDE</th>-->
+                                      <!--<th>LONGITUDE</th>-->
                                       <th>AÇÃO</th>
                                   </tr>
                               </thead>
@@ -493,12 +493,10 @@
                                                 <td><?php echo $tupla[0]; ?></td>
                                                 <td><?php echo $tupla[1]; ?></td>
                                                 <td><?php echo date('d/m/Y h:i a', strtotime($tupla[2]));?></td>
-                                                <td><?php echo number_format($tupla[3],4); ?></td>
-                                                <td><?php echo number_format($tupla[4],4); ?></td>
+                                                <!--<td><?php echo number_format($tupla[3],4); ?></td>-->
+                                                <!--<td><?php echo number_format($tupla[4],4); ?></td>-->
                                                 <td>
-                                        
                                                         <button type="button" onclick="excluirAlerta('<?php echo $tupla[0]; ?>')" class="btn btn-danger btn-sm">EXCLUIR</button>
-                                                        
                                                 </td>
                                             </tr>
                                         <?php
