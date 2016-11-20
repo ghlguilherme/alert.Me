@@ -36,16 +36,60 @@
         </script>
         <script>
             var map;
+            //Define o centro principal do mapa como minha casa por padrão
+            var devCenter = {lat: -21.784, lng: -48.178};
             function initMap() {
               map = new google.maps.Map(document.getElementById('area-mapa'), {
-                center: {lat: -21.784, lng: -48.178},
+                center: devCenter,
                 zoom: 14
               });
+                
+              if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        var lat = position.coords.latitude;
+                        var lng = position.coords.longitude;
+                        //Creating LatLng object with latitude and
+                        //longitude.
+                        //devCenter = new google.maps.LatLng(lat, lng);
+                        
+                         
+                    });
+                }
+                //Insere marcador com posição local
+                var marker = new google.maps.Marker({
+                    position: devCenter,
+                    map: map,
+                    draggable:true,
+                    title: 'Você está aqui!',
+                    icon : 'http://guilou.me/alertme/img/icon-marker.png'
+                });
+                
+                map.setCenter(devCenter);
             }
             function resizeMap(){
                 google.maps.event.trigger(map, "resize");
             }
         </script>
+        <!-- Piwik -->
+        <script type="text/javascript">
+          var _paq = _paq || [];
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["setCookieDomain", "*.alertme.guilou.me"]);
+          _paq.push(["setDomains", ["*.alertme.guilou.me","*.blog.guilou.me"]]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//estatisticas.guilou.me/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+<noscript><p><img src="//estatisticas.guilou.me/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
         <meta name="viewport" content="width=device-width, initial-scale=0.65">
     </head>
     <body>
@@ -61,7 +105,7 @@
                             <button class="dropdown-item">Meus Dados Pessoais</button>
                             <button class="dropdown-item">Meus Alertas</button>
                             <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-senha">Alterar Minha Senha</button>
-                            <button class="dropdown-item">Chat</button>
+                            <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-info">Sobre</button>
                             <div class="dropdown-divider"></div>
                             <form id="form-sair">
                                 <button class="dropdown-item" id="btn-sair">Sair</button>
@@ -84,7 +128,7 @@
                                     <button class="dropdown-item">Meus Dados Pessoais</button>
                                     <button class="dropdown-item">Meus Alertas</button>
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-senha">Alterar Minha Senha</button>
-                                    <button class="dropdown-item">Chat</button>
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-info">Sobre</button>
                                     <div class="dropdown-divider"></div>
                                     <form id="form-sair2">
                                         <button class="dropdown-item" id="btn-sair2">Sair</button>
@@ -114,7 +158,7 @@
                                 <a class="nav-link" data-toggle="tab" href="#mapa">Mapa</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#mensagens">Chat</a>
+                                <a class="nav-link" data-toggle="tab" href="#mensagens">Alertas</a>
                               </li>
                             </ul>
                             <!-- Tab panes -->
@@ -278,14 +322,9 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                               <div class="card">
-                                                   <div class="card-block">
-                                                        <div id="area-mapa">
-                                                            <!-- Área de plotagem do mapa do google maps -->
-                                                        </div>
-                                                        
-                                                   </div>
-                                               </div>
+                                                <div id="area-mapa">
+                                                    <!-- Área de plotagem do mapa do google maps -->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -383,7 +422,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            Colocar Mais informações sobre o sistema...
+                            <p>Desenvolvido como projeto de sistema por Guilherme Henrique Lourenço</p>
+                            <p>Email: guilherme@guilou.me</p>
+                            <p>Email 2: ghl.guilherme@gmail.com</p>
+                            <p>Novembro de 2016</p>
+                            <p>alertme.guilou.me</p>
                        </div>
                     </div>
                 </div>

@@ -21,33 +21,78 @@
     </script>
    <script type="text/javascript">
         var map;
+        var devCenter = {lat: -21.784, lng: -48.178};
         function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -21.784, lng: -48.178},
+            center: devCenter,
             zoom: 14
           });
+            
+           var marker = new google.maps.Marker({
+                position: devCenter,
+                map: map,
+                draggable:true,
+                title: 'Você está aqui!',
+                icon : 'http://guilou.me/alertme/img/icon-marker.png'
+            });
+
+            map.setCenter(devCenter);    
         }
    </script>
-     <style type="text/css">
-      #map { height: 400px; width: 350px }
-    </style>
+     <style>
+         #map{height: 500px; width: 500px;}
+      </style>
   </head>
   <body>
-     <div class="container">
-        <br>
-         <div class="row">
-             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-block">
-                     <div id="map"></div>
-                        
-                    </div>
-                </div>
-             </div>
-         </div>
-     </div>          
-              
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-4 col-sm-4 col-md-4"></div>
+              <div class="col-xs-4 col-sm-4 col-md-4">
+                  <div id="map">
+                      
+                  </div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4"></div>
+          </div>
+      </div>
                
+        <script>
+            var map;
+            //Define o centro principal do mapa como minha casa por padrão
+            var devCenter = {lat: -21.784, lng: -48.178};
+            function initMap() {
+              map = new google.maps.Map(document.getElementById('area-mapa'), {
+                center: devCenter,
+                zoom: 14
+              });
+                
+              if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        var lat = position.coords.latitude;
+                        var lng = position.coords.longitude;
+                        //Creating LatLng object with latitude and
+                        //longitude.
+                        //devCenter = new google.maps.LatLng(lat, lng);
+                        
+                         
+                    });
+                }
+                //Insere marcador com posição local
+                var marker = new google.maps.Marker({
+                    position: devCenter,
+                    map: map,
+                    draggable:true,
+                    title: 'Você está aqui!',
+                    icon : 'http://guilou.me/alertme/img/icon-marker.png'
+                });
+                
+                map.setCenter(devCenter);
+            }
+            function resizeMap(){
+                google.maps.event.trigger(map, "resize");
+            }
+        </script>
           
    
     

@@ -28,6 +28,25 @@
         <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.min.js"></script>
         <script type="application/javascript" src="js/frameworks/bootstrap-datepicker.pt-BR.min.js"></script>
         <script type="application/javascript" src="js/scripts/scripts.js"></script>
+        <!-- Piwik -->
+        <script type="text/javascript">
+          var _paq = _paq || [];
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["setCookieDomain", "*.alertme.guilou.me"]);
+          _paq.push(["setDomains", ["*.alertme.guilou.me","*.blog.guilou.me"]]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//estatisticas.guilou.me/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//estatisticas.guilou.me/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+        <!-- End Piwik Code -->
+
         <meta name="viewport" content="width=device-width, initial-scale=0.7">
     </head>
     <body>
