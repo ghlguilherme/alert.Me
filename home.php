@@ -89,7 +89,7 @@
         </script>
 <noscript><p><img src="//estatisticas.guilou.me/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
 <!-- End Piwik Code -->
-
+    
         <meta name="viewport" content="width=device-width, initial-scale=0.65">
     </head>
     <body>
@@ -453,26 +453,58 @@
     </section>
     <section id="secao-modal-alertas">
         <div class="modal fade" id="modal-alertas">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog modal-lg" role="document">
            <form id="form-alterar-senha">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">Minhas indicações de Alertas</h4>
+                <h4 class="modal-title">Minhas Indicações de Alertas</h4>
               </div>
               <div class="modal-body">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <p>Últimos Alertas indicado por mim</p>
-                            <ul>
-                                <li>Exemplo 1</li>
-                                <li>Exemplo 2</li>
-                                <li>Exemplo 3</li>
-                                <li>Exemplo 4</li>
-                            </ul>
+                            <?php
+                                $sql_select_alertas = "SELECT ALERTA_ID, ALERTA_DESCRICAO, ALERTA_DATAHORA, ALERTA_LATITUDE, ALERTA_LONGITUDE FROM ALERTA WHERE ALERTA_PESSOA = '{$_SESSION['usuario-usuario']}'";
+                                
+                                //Obtém conexão com o banco de dados
+                                $conn = conecta_bd();      
+                                      
+                                $result = mysqli_query($conn, $sql_select_alertas);     
+    
+                            ?>
+                            <table class="table table-bordered">
+                              <thead class="thead-inverse">
+                                  <tr>
+                                      <th>ID</th>
+                                      <th>DESCRIÇÃO</th>
+                                      <th>DATA/HORA</th>
+                                      <th>LATITUDE</th>
+                                      <th>LONGITUDE</th>
+                                      <th>AÇÃO</th>
+                                  </tr>
+                              </thead>
+                               <?php
+                                    while($tupla = mysqli_fetch_row($result)){
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $tupla[0]; ?></td>
+                                                <td><?php echo $tupla[1]; ?></td>
+                                                <td><?php echo date('d/m/Y h:i a', strtotime($tupla[2]));?></td>
+                                                <td><?php echo number_format($tupla[3],4); ?></td>
+                                                <td><?php echo number_format($tupla[4],4); ?></td>
+                                                <td>
+                                        
+                                                        <button type="button" onclick="excluirAlerta('<?php echo $tupla[0]; ?>')" class="btn btn-danger btn-sm">EXCLUIR</button>
+                                                        
+                                                </td>
+                                            </tr>
+                                        <?php
+                                    } 
+                                ?>
+                            </table>
                        </div>
                     </div>
                 </div>
@@ -487,5 +519,10 @@
         </div><!-- /.modal -->
     </section>
     <button type="button" class="btn btn-danger btn-lg" id="novo-alerta">Novo Alerta</button>
+        <form id="form-delete-alerta">
+            <button type="button" id="botao-delete-alerta" class="btn btn-danger btn-sm"></button>
+            <input type="hidden" name="delete-alerta-id" id="delete-alerta-id" value="">
+            <input type="hidden" name="opcao" value="6">
+        </form>
     </body>
 </html>

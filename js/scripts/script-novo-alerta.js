@@ -1,5 +1,5 @@
 $(document).ready(function () {
-        //Requisição para alteração da senha do usuário
+    //Requisição para alteração da senha do usuário
     var request;
     $("#botao-confirmar-alerta").click(function (event) {
         if (request) {

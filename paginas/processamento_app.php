@@ -6,6 +6,7 @@
     ## Opçao 3 - Altera a senha do usuário
     ## Opção 4 - Recupera a senha do usuário
     ## Opção 5 - Adicionar alerta ao mapa
+    ## Opção 6 - Excluir alerta selecionado na tabela
 
     $opcao = isset($_POST['opcao']) ? $_POST['opcao'] : null;
     $opcao = intval($opcao);
@@ -208,6 +209,17 @@
         
         
     }else if($opcao == 6){
+        //Operação de exclusão de alerta do usuário
+        $alerta_id = isset($_POST['delete-alerta-id']) ? $_POST['delete-alerta-id'] : null;
+        $alerta_id = intval($alerta_id);
+        
+        $sql_delete_alerta = "DELETE FROM ALERTA WHERE ALERTA_ID = {$alerta_id}";
+        
+        //Guarda conexão com o banco de dados
+        $conn = conecta_bd();
+        mysqli_query($conn, $sql_delete_alerta);
+        mysqli_close($conn);
+        echo "success";
         
     }else if($opcao == 7){
         

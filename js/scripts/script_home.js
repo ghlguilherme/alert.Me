@@ -3,6 +3,12 @@
 $(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function (e) {
     resizeMap();
 });
+
+//esta função recebe o id do alerta que ela vai excluir
+function excluirAlerta(id){
+    $("#delete-alerta-id").val(id);
+    $("#botao-delete-alerta").click();
+}
 $(document).ready(function () {
    
     //Função de evento de clique nos botões
@@ -40,6 +46,7 @@ $(document).ready(function () {
         nextText: 'Próximo',
         prevText: 'Anterior'
     }); 
+    
     
     //Requisição ajax de logout
     // Variable to hold request
@@ -205,5 +212,38 @@ $(document).ready(function () {
     
     $("#novo-alerta").click(function (event) {
         location.href = "mapa.php";
+    });
+    
+    //Requisição para alteração da senha do usuário
+    var request;
+    $("#botao-delete-alerta").click(function (event) {
+        alert('passou');
+        if (request) {
+            request.abort();
+        }
+        var $form = $("#form-delete-alerta");
+        var $inputs = $form.find("input, select, button, textarea");
+        var serializedData = $form.serialize();
+        $inputs.prop("disabled", true);
+        request = $.ajax({
+            url: "paginas/processamento_app.php"
+            , type: "post"
+            , data: serializedData
+        });
+        request.done(function (response, textStatus, jqXHR) {
+            if (response === 'success') {
+                alert('Alerta excluído com sucesso!');
+                location.href = 'home.php';
+            }else{
+                alert('Erro: tente novamente mais tarde.')
+            }
+        });
+        request.fail(function (jqXHR, textStatus, errorThrown) {
+            console.error("Ocorreu o seguinte erro: " + textStatus, errorThrown);
+        });
+        request.always(function () {
+            $inputs.prop("disabled", false);
+        });
+        event.preventDefault();
     });
 });
