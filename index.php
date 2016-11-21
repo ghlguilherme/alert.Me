@@ -132,6 +132,7 @@
     <div class="modal fade" id="modal-esqueceu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
+             <form id="form-email">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -140,12 +141,14 @@
           </div>
           <div class="modal-body">
               <label for="txt-email-recuperar"><h5>Digite seu email cadastrado para recuperar seus dados.</h5></label>
-              <input type="email" class="form-control form-lg" placeholder="Email" id="txt-email-recuperar">
+              <input type="email" class="form-control form-lg" placeholder="Email" id="txt-email-recuperar" name="txt-email-recuperar">
           </div>
           <div class="modal-footer">
-            <button type="button" id="btn-recuperar-senha" class="btn btn-success">Recuperar</button>
+            <button type="button" id="btn-recuperar-senha" name="btn-recuperar-senha" class="btn btn-success">Recuperar</button>
+            <input type="hidden" name="opcao" value="4">
             <button type="button" class="btn btn-warning" data-dismiss="modal">Fechar</button>
           </div>
+            </form>
         </div>
       </div>
     </div>

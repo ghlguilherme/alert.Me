@@ -1,5 +1,7 @@
 <?php 
     include "processamento_banco.php";
+    include_once("class.phpmailer.php");
+    require_once('class.smtp.php');
     ## Página de processamento geral da aplicação
     ## Opção 1 - Encerra sessão do usuário
     ## Opção 2 - Atualiza dados do usuário
@@ -178,7 +180,46 @@
         
     }else if($opcao == 4){
         //Operação de recuperação de senha do usuário
+        $email = isset($_POST['txt-email-recuperar']) ? $_POST['txt-email-recuperar'] : null;
         
+        $sql_select_id_pessoa = "SELECT PESSOA_ID FROM PESSOA WHERE PESSOA_EMAIL = '{$email}'";
+        //Guarda conexão com o banco de dados
+        $conn = conecta_bd();
+        $result = mysqli_query($conn, $sql_select_id_pessoa);
+        while($tupla = mysqli_fetch_row($result)){
+             $pessoa_id = $tupla[0];
+         }
+        
+        //DETERMINA OS CARACTERES QUE CONTERÃO A SENHA
+        $caracteres = "0123456789abcdefghijklmnopqrstuvwxyz+-/()";
+        //EMBARALHA OS CARACTERES E PEGA APENAS OS 10 PRIMEIROS
+        $senha = substr(str_shuffle($caracteres),0,10);
+        
+        $nova_senha_criptografada = md5($senha);
+        $pessoa_id = intval($pessoa_id);            
+        $sql_update_pessoa_senha = "UPDATE PESSOA SET PESSOA_SENHA = '{$nova_senha_criptografada}' WHERE PESSOA_ID = {$pessoa_id}";
+        mysqli_query($conn, $sql_update_pessoa_senha);
+        mysqli_close($conn);
+        
+        if($email!=null){
+            $mailer = new PHPMailer();
+            $mailer->IsSMTP();
+            $mailer->SMTPDebug = 1;
+            $mailer->Port = 587; //Indica a porta de conexão para a saída de e-mails
+            $mailer->Host = 'mx1.hostinger.com.br';//Endereço do Host do SMTP Locaweb
+            $mailer->SMTPAuth = true; //define se haverá ou não autenticação no SMTP
+            $mailer->Username = 'suporte@guilou.me'; //Login de autenticação do SMTP
+            $mailer->Password = '29071993'; //Senha de autenticação do SMTP
+            $mailer->FromName = 'Suporte Guilou - alert.Me '; //Nome que será exibido para o destinatário
+            $mailer->From = 'suporte@guilou.me'; //Obrigatório ser a mesma caixa postal configurada no remetente do SMTP
+            $mailer->AddAddress($email,'Guilherme'); //Destinatários
+            $mailer->Subject = 'Recuperação da sua senha';
+            $mailer->Body = 'Nova senha gerada: '.$senha;
+            $enviado = $mailer->Send();
+            
+            echo "success";
+        }
+
     }else if($opcao == 5){
         //Operação de adicionar alerta no mapa e salvar no banco de dados
         $descricao = isset($_POST['alerta-descricao']) ? $_POST['alerta-descricao'] : null;

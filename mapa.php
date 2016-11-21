@@ -25,11 +25,12 @@
         <script type="application/javascript" src="js/frameworks/font-awesome.js"></script>
         <script type="application/javascript" src="js/scripts/script_home.js"></script>
     <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQTuyFAnnO-K_BotyXc66VpNwg538J3jk&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQTuyFAnnO-K_BotyXc66VpNwg538J3jk&libraries=visualization&callback=initMap">
     </script>
    <script type="text/javascript">
         var map;
-        var devCenter = {lat: -21.784, lng: -48.178};
+        var devCenter = {lat: -21.79419277346009, lng: -48.17431524395943};
+        var heatmap = null;
         //este array armazena os marcadores para os alertas do mapa
         var marcadores = new Array();
        function RetornarCentro(controlDiv, map) {
@@ -114,7 +115,7 @@
 
               //Evento de clique do botão
               controlUI.addEventListener('click', function() {
-                //ação aqui
+                toggleHeatmap();  
               });
         }
        
@@ -146,34 +147,8 @@
               });
         }
        
-        function BotaoAlertaAqui(controlDiv, map){
-              //Adiciona botão de alerta rápido
-              var controlUI = document.createElement('button');
-              controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
-              controlUI.style.marginBottom = '22px';
-              controlUI.style.marginTop = '1px';   
-              controlUI.style.marginRight = '22px';   
-              controlUI.style.marginLeft = '22px'; 
-              controlUI.style.textAlign = 'center';
-              controlUI.title = 'Criar alerta aqui';
-              controlUI.className = 'btn btn-warning btn-sm';   
-              controlDiv.appendChild(controlUI);
-
-              // Configura CSS do botão
-              var controlText = document.createElement('div');
-              controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-              controlText.style.fontSize = '16px';
-              controlText.style.lineHeight = '38px';
-              controlText.style.paddingLeft = '5px';
-              controlText.style.paddingRight = '5px';
-              controlText.innerHTML = 'Novo alerta aqui!';
-              controlUI.appendChild(controlText);
-
-              //Evento de clicque do botão
-              controlUI.addEventListener('click', function() {
-                 //Ação aqui
-              });
-        }
+       
+        
        
         function placeMarkerAndPanTo(latLng, map) {
               var marker = new google.maps.Marker({
@@ -195,6 +170,20 @@
                  placeMarkerAndPanTo(e.latLng, map);
                  location.href = "tela-novo-alerta.php?latitude="+e.latLng.lat()+"&longitude="+e.latLng.lng();
              });
+            
+            //teste heatmap
+            exem = new Array();
+            exem.push(new google.maps.LatLng(-21.79419277346009, -48.17431524395943));
+            exem.push(new google.maps.LatLng(-21.796243680592056, -48.189897537231445));
+            exem.push(new google.maps.LatLng(-21.797757871269397, -48.18680763244629));
+            exem.push(new google.maps.LatLng(-21.80198158173062, -48.184919357299805));
+            
+              //Cria uma camada de mapa de calor
+              heatmap = new google.maps.visualization.HeatmapLayer({
+                data: exem,
+                radius: 75  
+              });
+            
             
               //Cria div do botão de centralizar no mapa
               var centerControlDiv = document.createElement('div');
@@ -225,12 +214,6 @@
               ajudaControlDiv.index = 1;
               map.controls[google.maps.ControlPosition.RIGHT_TOP].push(ajudaControlDiv);
             
-              //Cria div para botão de ajuda
-              var novoAlertaControlDiv = document.createElement('div');
-              var novoAlertaControl = new BotaoAlertaAqui(novoAlertaControlDiv, map);
-            
-              novoAlertaControlDiv.index = 1;
-              map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(novoAlertaControlDiv);
               
             //Verifica se o navegador possui recurso de geolocalização e pergunta ao usuário se pode ser ativada a localização dele
             if (navigator.geolocation) {
@@ -302,6 +285,22 @@
                 
             }
             map.setCenter(devCenter);
+        }
+       
+        //Esta função retorna os pontos do mapa de calor
+        function getPoints(){
+            var points = new Array();
+            for(var i = 0; i < marcadores.length; i++){
+                var lat = marcadores[i].latitude;
+                var lon = marcadores[i].longitude;
+                points.push(new google.maps.LatLng(lat, lon));
+            }
+            return points;
+        }
+       
+        //Ativa ou desativa o mapa de calor
+        function toggleHeatmap() {
+            heatmap.setMap(heatmap.getMap() ? null : map);
         }
        
         //Esta função permite cada marcador exibir sua própria informação

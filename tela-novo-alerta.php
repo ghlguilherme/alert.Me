@@ -67,7 +67,7 @@
                       </div>
                       <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <button type="button" class="btn btn-outline-warning btn-block" onclick="location.href='home.php';" id="botao-voltar-home">Retornar Home</button>
+                                <button type="button" class="btn btn-outline-warning btn-block" onclick="location.href='mapa.php';" id="botao-voltar-home">Cancelar</button>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                 <button type="button" class="btn btn-outline-success btn-block" id="botao-confirmar-alerta">Confirmar Alerta</button>

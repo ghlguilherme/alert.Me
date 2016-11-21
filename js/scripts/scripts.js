@@ -1,5 +1,41 @@
 
 $(document).ready(function () {
+    
+     //Requisição para alteração da senha do usuário
+    var request;
+    $("#btn-recuperar-senha").click(function (event) {
+        
+        if (request) {
+            request.abort();
+        }
+        var $form = $("#form-email");
+        var $inputs = $form.find("input, select, button, textarea");
+        var serializedData = $form.serialize();
+        $inputs.prop("disabled", true);
+        request = $.ajax({
+            url: "paginas/processamento_app.php"
+            , type: "post"
+            , data: serializedData
+        });
+        request.done(function (response, textStatus, jqXHR) {
+            if (response === 'success') {
+                alert('Um email foi enviado com sua nova senha. Troque-a depois.');
+                location.href = 'index.php';
+            }else{
+                alert('Um email foi enviado com sua nova senha. Troque-a depois.');
+                location.href = 'index.php';
+            }
+        });
+        request.fail(function (jqXHR, textStatus, errorThrown) {
+            console.error("Ocorreu o seguinte erro: " + textStatus, errorThrown);
+        });
+        request.always(function () {
+            $inputs.prop("disabled", false);
+        });
+        event.preventDefault();
+    });
+    
+    
     $("#txt-cep").mask('00000-000');
     $("#txt-telefone").mask('(00) 0000-0000');
     $("#txt-celular").mask('(00) 00000-0000');
