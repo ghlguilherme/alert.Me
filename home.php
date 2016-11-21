@@ -102,8 +102,6 @@
                             &#9776;
                           </button>
                           <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item">Meus Dados Pessoais</button>
-                            <button class="dropdown-item">Meus Alertas</button>
                             <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-senha">Alterar Minha Senha</button>
                             <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-info">Sobre</button>
                             <div class="dropdown-divider"></div>
@@ -125,8 +123,6 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right">
-                                    <button class="dropdown-item">Meus Dados Pessoais</button>
-                                    <button class="dropdown-item">Meus Alertas</button>
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-senha">Alterar Minha Senha</button>
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-info">Sobre</button>
                                     <div class="dropdown-divider"></div>
