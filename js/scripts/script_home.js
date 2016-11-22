@@ -217,7 +217,7 @@ $(document).ready(function () {
     //Requisição para alteração da senha do usuário
     var request;
     $("#botao-delete-alerta").click(function (event) {
-        alert('passou');
+        
         if (request) {
             request.abort();
         }

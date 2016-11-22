@@ -31,6 +31,7 @@
         var map;
         var devCenter = {lat: -21.79419277346009, lng: -48.17431524395943};
         var heatmap = null;
+        var exem = new Array();
         //este array armazena os marcadores para os alertas do mapa
         var marcadores = new Array();
        function RetornarCentro(controlDiv, map) {
@@ -115,7 +116,7 @@
 
               //Evento de clique do botão
               controlUI.addEventListener('click', function() {
-                toggleHeatmap();  
+                toggleHeatmap();
               });
         }
        
@@ -172,16 +173,11 @@
              });
             
             //teste heatmap
-            exem = new Array();
-            exem.push(new google.maps.LatLng(-21.79419277346009, -48.17431524395943));
-            exem.push(new google.maps.LatLng(-21.796243680592056, -48.189897537231445));
-            exem.push(new google.maps.LatLng(-21.797757871269397, -48.18680763244629));
-            exem.push(new google.maps.LatLng(-21.80198158173062, -48.184919357299805));
-            
+
               //Cria uma camada de mapa de calor
               heatmap = new google.maps.visualization.HeatmapLayer({
-                data: exem,
-                radius: 75  
+                data: getPoints(),
+                radius: 50  
               });
             
             
@@ -223,25 +219,43 @@
                         var lng = position.coords.longitude;
                         //Cria objeto com latitude e longitude
                         devCenter = new google.maps.LatLng(lat, lng);
-                        
+                        map.setCenter(devCenter);
                          
+                        var marker = new google.maps.Marker({
+                            position: devCenter,
+                            map: map,
+                            draggable:true,
+                            title: 'Você está aqui!',
+                            icon : 'http://guilou.me/alertme/img/icon-marker-me.png'
+                        });
+
+                        var infowindow = new google.maps.InfoWindow({
+                            content: "Esta é sua localização atual. <br> Clique no botão 'Novo Alerta Aqui' <br>para criar um alerta neste local."
+                        });
+
+                        marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                        });
                     });
+            }else{
+                   map.setCenter(devCenter);
+                   var marker = new google.maps.Marker({
+                        position: devCenter,
+                        map: map,
+                        draggable:true,
+                        title: 'Você está aqui!',
+                        icon : 'http://guilou.me/alertme/img/icon-marker-me.png'
+                    });
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "Esta é sua localização atual. <br> Clique aqui <br>para criar um alerta neste local."
+                    });
+
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker);
+                    });
+                
             }
-           var marker = new google.maps.Marker({
-                position: devCenter,
-                map: map,
-                draggable:true,
-                title: 'Você está aqui!',
-                icon : 'http://guilou.me/alertme/img/icon-marker-me.png'
-            });
-            
-            var infowindow = new google.maps.InfoWindow({
-                content: "Esta é sua localização atual. <br> Clique no botão 'Novo Alerta Aqui' <br>para criar um alerta neste local."
-            });
-            
-            marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });
 
             
             //Aqui todos os pontos do são recuperados do banco de dados para o mapa
@@ -258,6 +272,7 @@
                                     var marcador = {id:<?php echo $tupla[0]; ?>, usuario: '<?php echo $tupla[1]; ?>', descricao: '<?php echo $tupla[2]; ?>', datahora: '<?php echo date('d/m/Y h:i a', strtotime($tupla[3])); ?>', latitude: <?php echo $tupla[4]; ?>, longitude: <?php echo $tupla[5]; ?>, peso: <?php echo $tupla[6]; ?>};
                                     
                                     marcadores.push(marcador);
+                                    exem.push(new google.maps.LatLng(<?php echo $tupla[4]; ?>,<?php echo $tupla[5]; ?>));
                         <?php
                     }
                     mysqli_close($conn);
@@ -289,13 +304,7 @@
        
         //Esta função retorna os pontos do mapa de calor
         function getPoints(){
-            var points = new Array();
-            for(var i = 0; i < marcadores.length; i++){
-                var lat = marcadores[i].latitude;
-                var lon = marcadores[i].longitude;
-                points.push(new google.maps.LatLng(lat, lon));
-            }
-            return points;
+            return exem;
         }
        
         //Ativa ou desativa o mapa de calor

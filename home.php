@@ -41,7 +41,8 @@
             function initMap() {
               map = new google.maps.Map(document.getElementById('area-mapa'), {
                 center: devCenter,
-                zoom: 14
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.HYBRID  
               });
                 
               if (navigator.geolocation) {
@@ -49,23 +50,30 @@
                     function(position) {
                         var lat = position.coords.latitude;
                         var lng = position.coords.longitude;
-                        //Creating LatLng object with latitude and
-                        //longitude.
-                        //devCenter = new google.maps.LatLng(lat, lng);
+                        devCenter = new google.maps.LatLng(lat, lng);
+                        map.setCenter(devCenter);
                         
-                         
+                        //Insere marcador com posição local
+                        var marker = new google.maps.Marker({
+                            position: devCenter,
+                            map: map,
+                            draggable:true,
+                            title: 'Você está aqui!',
+                            icon : 'http://guilou.me/alertme/img/icon-marker.png'
+                        });
                     });
+                }else{
+                    //Insere marcador com posição local
+                    var marker = new google.maps.Marker({
+                        position: devCenter,
+                        map: map,
+                        draggable:true,
+                        title: 'Você está aqui!',
+                        icon : 'http://guilou.me/alertme/img/icon-marker.png'
+                    });
+
+                    map.setCenter(devCenter);
                 }
-                //Insere marcador com posição local
-                var marker = new google.maps.Marker({
-                    position: devCenter,
-                    map: map,
-                    draggable:true,
-                    title: 'Você está aqui!',
-                    icon : 'http://guilou.me/alertme/img/icon-marker.png'
-                });
-                
-                map.setCenter(devCenter);
             }
             function resizeMap(){
                 google.maps.event.trigger(map, "resize");
@@ -317,6 +325,9 @@
                                         </div>
                                         <br>
                                         <div class="row">
+                                            <button type="button" class="btn btn-success btn-md btn-block" id="btn-mostrar-mapa" onclick="location.href='mapa.php';">Criar Alerta no mapa</button>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                 <div id="area-mapa">
                                                     <!-- Área de plotagem do mapa do google maps -->
@@ -331,8 +342,6 @@
                                          <br>
                                           <button type="button" class="btn btn-danger btn-md btn-block" data-toggle="modal" data-target="#modal-alertas">Mostrar Meus Alertas</button>
                                           <br>
-                                          <button type="button" class="btn btn-success btn-md btn-block" id="btn-mostrar-mapa" onclick="location.href='mapa.php';">Mostrar mapa de alertas</button>
-                                          <br>
                                       </section>
                                       <section id="alertas-corpo">
                                           <div class="card">
@@ -340,7 +349,7 @@
                                               <div class="card-block">
                                                 <h4 class="card-title">Tem Dúvidas?</h4>
                                                 <p class="card-text">Mande um email para nós! É simples.<br> <a href="mailto:suporte@guilou.me?Subject=Suporte" style="color:blue;">suporte@guilou.me</a><br> Ou visite nosso site.</p>
-                                                <a href="https://guilou.me" class="btn btn-warning">Ir para o site</a>
+                                                <a href="https://guilou.me" class="btn btn-warning" target="_blank">Ir para o site</a>
                                               </div>
                                           </div>
                                       </section>
@@ -512,9 +521,9 @@
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
     </section>
-    <button type="button" class="btn btn-danger btn-lg" id="novo-alerta">Novo Alerta</button>
+    <button type="button" class="btn btn-danger btn-circle btn-lg" id="novo-alerta">+</button>
         <form id="form-delete-alerta">
-            <button type="button" id="botao-delete-alerta" class="btn btn-danger btn-sm"></button>
+            <button type="button" id="botao-delete-alerta" class="btn btn-danger btn-sm" style="display: none;"></button>
             <input type="hidden" name="delete-alerta-id" id="delete-alerta-id" value="">
             <input type="hidden" name="opcao" value="6">
         </form>
